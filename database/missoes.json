@@ -1,0 +1,159 @@
+{
+  "7211669573681@lid": {
+    "ativas": [
+      {
+        "id": "trabalhar_200",
+        "nome": "💎 Trabalhador Supremo",
+        "descricao": "Trabalhe 200 vezes",
+        "tipo": "trabalhar",
+        "quantidade": 200,
+        "recompensa": {
+          "xp": 6000,
+          "dinheiro": 15000
+        },
+        "progresso": 85,
+        "concluida": false
+      },
+      {
+        "id": "perguntas_200",
+        "nome": "📖 Sábio Supremo",
+        "descricao": "Responda 200 perguntas",
+        "tipo": "perguntas",
+        "quantidade": 200,
+        "recompensa": {
+          "xp": 8000,
+          "dinheiro": 15000
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "skills_150",
+        "nome": "⚡ Mestre Supremo",
+        "descricao": "Use 150 skills",
+        "tipo": "skills",
+        "quantidade": 150,
+        "recompensa": {
+          "xp": 8000,
+          "dinheiro": 12000
+        },
+        "progresso": 0,
+        "concluida": false
+      }
+    ],
+    "concluidas": [],
+    "ultimoReset": "Sat Jul 04 2026"
+  },
+  "94296728445042@lid": {
+    "ativas": [
+      {
+        "id": "matar_1",
+        "nome": "🧪 Iniciante em Combate",
+        "descricao": "Derrote 1 inimigo",
+        "tipo": "matar",
+        "quantidade": 1,
+        "recompensa": {
+          "xp": 50,
+          "dinheiro": 100
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "matar_1",
+        "nome": "🧪 Iniciante em Combate",
+        "descricao": "Derrote 1 inimigo",
+        "tipo": "matar",
+        "quantidade": 1,
+        "recompensa": {
+          "xp": 50,
+          "dinheiro": 100
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "matar_3",
+        "nome": "🐺 Aprendiz de Guerreiro",
+        "descricao": "Derrote 3 inimigos",
+        "tipo": "matar",
+        "quantidade": 3,
+        "recompensa": {
+          "xp": 100,
+          "dinheiro": 200
+        },
+        "progresso": 0,
+        "concluida": false
+      }
+    ],
+    "concluidas": [
+      {
+        "id": "treinar_2",
+        "nome": "💪 Treinador Iniciante"
+      },
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso"
+      },
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso"
+      },
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso"
+      }
+    ],
+    "ultimoReset": "Sat Jul 04 2026"
+  },
+  "36310307840112@lid": {
+    "ativas": [
+      {
+        "id": "matar_5_dificil",
+        "nome": "🔥 Matador de Monstros",
+        "descricao": "Derrote 5 inimigos difíceis",
+        "tipo": "matar",
+        "quantidade": 5,
+        "recompensa": {
+          "xp": 400,
+          "dinheiro": 600
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "matar_10",
+        "nome": "⚔️ Guerreiro Experiente",
+        "descricao": "Derrote 10 inimigos",
+        "tipo": "matar",
+        "quantidade": 10,
+        "recompensa": {
+          "xp": 300,
+          "dinheiro": 500
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "trabalhar_10",
+        "nome": "💼 Trabalhador Dedicado",
+        "descricao": "Trabalhe 10 vezes",
+        "tipo": "trabalhar",
+        "quantidade": 10,
+        "recompensa": {
+          "xp": 150,
+          "dinheiro": 400
+        },
+        "progresso": 0,
+        "concluida": false
+      }
+    ],
+    "concluidas": [
+      {
+        "id": "perguntas_10",
+        "nome": "📚 Mestre do Quiz"
+      }
+    ],
+    "ultimoReset": "Sat Jul 04 2026"
+  }
+}
