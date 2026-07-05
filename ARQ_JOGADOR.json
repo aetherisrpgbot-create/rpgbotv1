@@ -563,10 +563,10 @@
   },
   "79792389017845@lid": {
     "nome": "𝘼𝙉𝘿𝙍𝘼𝘿𝙀",
-    "xp": 58082,
-    "nivel": 1200,
-    "stamina": 5740,
-    "maxStamina": 6100,
+    "xp": 58,
+    "nivel": 10,
+    "stamina": 50,
+    "maxStamina": 150,
     "fatigue": 81,
     "saldo": 0,
     "banco": 903734,
@@ -1145,7 +1145,7 @@
   "209092345864403@lid": {
     "nome": "PIERRY",
     "xp": 54,
-    "nivel": 1100,
+    "nivel": 15,
     "stamina": 80,
     "maxStamina": 175,
     "fatigue": 10,
@@ -11277,7 +11277,7 @@
   "7211669573681@lid": {
     "nome": "Widnes Santos",
     "xp": 84,
-    "nivel": 1301,
+    "nivel": 8,
     "stamina": 6530,
     "maxStamina": 6605,
     "fatigue": 35,
