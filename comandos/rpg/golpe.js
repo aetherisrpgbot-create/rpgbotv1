@@ -9,7 +9,40 @@ module.exports = {
         const { getAtributosCombate } = require("../../utils/helpers");
         const { combatesAtivos, finalizarCombate } = require("./combate_estado");
         const { progressoMissao } = require("../../servicos/missoes");
+        const { golpeDuelo, emDuelo } = require("../../servicos/duelo");
+	const { isDefesaAtiva, aplicarReducaoDefesa } = require("../../servicos/combate");
 
+        // ===== PRIORIDADE 1: VERIFICA SE ESTÁ EM DUELO (PvP) =====
+        const estaEmDuelo = emDuelo(remetenteId);
+
+        if (estaEmDuelo.emDuelo) {
+            const resultado = golpeDuelo(remetenteId);
+            if (!resultado.sucesso) {
+                return sock.sendMessage(remoteJid, { text: `❌ ${resultado.erro}` });
+            }
+
+            const duelo = resultado.duelo;
+            let msg = `💥 *GOLPE!*\n\n`;
+            if (resultado.esquivou) {
+                msg += `💨 @${resultado.nomeDefensor} *ESQUIVOU* do golpe!\n\n`;
+            } else {
+                msg += `💥 @${resultado.nomeAtacante} causou *${resultado.dano}* de dano!\n`;
+                if (resultado.critico) msg += `💥 *ACERTO CRÍTICO!*\n`;
+                msg += `\n`;
+            }
+            msg += `📊 *Status atual:*\n❤️ @${duelo.desafianteId.split('@')[0]}: ${duelo.vidaDesafiante}/${duelo.vidaMaxDesafiante}\n❤️ @${duelo.desafiadoId.split('@')[0]}: ${duelo.vidaDesafiado}/${duelo.vidaMaxDesafiado}`;
+
+            if (resultado.vencedor) {
+                msg += `\n\n🏆 *${resultado.vencedor === duelo.desafianteId ? 'DESAFIANTE' : 'DESAFIADO'} VENCEU!*\n⭐ @${resultado.vencedor.split('@')[0]} ganhou +${resultado.recompensa.vencedor.xp} XP e R$${resultado.recompensa.vencedor.dinheiro}!\n💔 @${resultado.perdedor.split('@')[0]} perdeu ${resultado.recompensa.perdedor.xp} XP e R$${resultado.recompensa.perdedor.dinheiro}.\n👏 Parabéns ao vencedor!`;
+            } else {
+                msg += `\n\n🎯 *Próximo turno:* @${duelo.turno.split('@')[0]}`;
+            }
+
+            await sock.sendMessage(remoteJid, { text: msg, mentions: [duelo.desafianteId, duelo.desafiadoId, duelo.turno] });
+            return;
+        }
+
+        // ===== COMBATE NORMAL (PvE) =====
         const combate = combatesAtivos[remetenteId];
         if (!combate) {
             return sock.sendMessage(remoteJid, {
@@ -56,7 +89,6 @@ module.exports = {
         if (inimigo.vida <= 0) {
             console.log("🔥 VITÓRIA!");
 
-            // ===== MULTIPLICADORES POR DIFICULDADE =====
             let mult = 1;
             if (inimigo.dificuldade === "facil") mult = 0.5;
             else if (inimigo.dificuldade === "normal") mult = 1.0;
@@ -69,20 +101,25 @@ module.exports = {
             const recompensaDinheiro = Math.floor(baseDinheiro * mult);
             const recompensaXP = Math.floor(baseXP * mult);
 
-            // ===== ADICIONA RECOMPENSAS =====
+            // ===== ADICIONA DINHEIRO =====
             jogador.saldo += recompensaDinheiro;
+
+            // ===== ADICIONA XP =====
             const result = adicionarXP(remetenteId, jogador.nome, recompensaXP);
 
-            // ===== SALVA JOGADOR =====
-            dados[remetenteId] = jogador;
+            // ===== 🔥 RECARREGA O JOGADOR PRA PEGAR O XP ATUALIZADO =====
+            const jogadorAtualizado = getJogador(remetenteId, msg.pushName || "Usuário");
+            
+            // ===== 🔥 TRANSFERE O SALDO PRO JOGADOR ATUALIZADO =====
+            jogadorAtualizado.saldo = jogador.saldo;
+
+            // ===== SALVA O JOGADOR COM XP E SALDO =====
+            dados[remetenteId] = jogadorAtualizado;
             escreverJogadores(dados);
 
-            // ===== FINALIZA COMBATE =====
             finalizarCombate(remetenteId);
 
-            // ===== PROGRESSO DE MISSÃO =====
             const missoesConcluidas = progressoMissao(remetenteId, "matar");
-            
             let msgMissao = "";
             if (missoesConcluidas.length > 0) {
                 msgMissao = "\n🎯 *MISSÕES ATUALIZADAS!*\n";
@@ -93,7 +130,6 @@ module.exports = {
                 }
             }
 
-            // ===== MENSAGEM =====
             let imagemPath = "";
             if (inimigo.dificuldade === "facil") {
                 imagemPath = `./imagens/inimigos/facil/morto/${inimigo.imagem}_morto.png`;
@@ -136,9 +172,16 @@ module.exports = {
             return;
         }
 
-        // ===== ATAQUE DO INIMIGO =====
-        let danoInimigo = inimigo.poder + Math.floor(Math.random() * 6) - stats.defesa;
-        if (danoInimigo < 1) danoInimigo = 1;
+// ===== ATAQUE DO INIMIGO =====
+let danoInimigo = inimigo.poder + Math.floor(Math.random() * 6) - stats.defesa;
+if (danoInimigo < 1) {
+    danoInimigo = 1;
+}
+
+// ===== 🔥 APLICA REDUÇÃO DE DEFESA SE ATIVA =====
+if (isDefesaAtiva(inimigo)) {
+    danoInimigo = aplicarReducaoDefesa(inimigo, danoInimigo);
+}
 
         let esquivou = false;
         if (Math.random() * 100 < stats.esquiva) {
@@ -147,32 +190,32 @@ module.exports = {
         }
 
         jogador.vida -= danoInimigo;
-        if (jogador.vida < 0) jogador.vida = 0;
+        if (jogador.vida < 0) {
+            jogador.vida = 0;
+        }
 
-// ===== DERROTA =====
-if (jogador.vida <= 0) {
-    finalizarCombate(remetenteId);
+        // ===== DERROTA =====
+        if (jogador.vida <= 0) {
+            finalizarCombate(remetenteId);
+            const { aplicarPenalidadeMorte } = require("../../utils/morte");
+            const penalidade = aplicarPenalidadeMorte(jogador);
 
-    // ===== APLICA PENALIDADE =====
-    const { aplicarPenalidadeMorte } = require("../../utils/morte");
-    const penalidade = aplicarPenalidadeMorte(jogador);
+            dados[remetenteId] = jogador;
+            escreverJogadores(dados);
 
-    dados[remetenteId] = jogador;
-    escreverJogadores(dados);
-
-    return sock.sendMessage(remoteJid, {
-        text: `💀 *DERROTA!*\n\n` +
-              `Você foi derrotado por ${inimigo.nome}.\n\n` +
-              `━━━━━━━━━━━━━━━━━━━━━━\n` +
-              `📊 *PENALIDADES:*\n` +
-              `⭐ -${penalidade.perdaXP} XP\n` +
-              `💰 -R$${penalidade.perdaDinheiro}\n` +
-              `⚡ -${penalidade.perdaStamina} Stamina\n` +
-              `😵 +${penalidade.fatigueGanha} Fatigue\n\n` +
-              `❤️ Vida restaurada.\n\n` +
-              `Use !descansar para se recuperar.`
-    });
-}
+            return sock.sendMessage(remoteJid, {
+                text: `💀 *DERROTA!*\n\n` +
+                      `Você foi derrotado por ${inimigo.nome}.\n\n` +
+                      `━━━━━━━━━━━━━━━━━━━━━━\n` +
+                      `📊 *PENALIDADES:*\n` +
+                      `⭐ -${penalidade.perdaXP} XP\n` +
+                      `💰 -R$${penalidade.perdaDinheiro}\n` +
+                      `⚡ -${penalidade.perdaStamina} Stamina\n` +
+                      `😵 +${penalidade.fatigueGanha} Fatigue\n\n` +
+                      `❤️ Vida restaurada.\n\n` +
+                      `Use !descansar para se recuperar.`
+            });
+        }
 
         // ===== SALVA ESTADO =====
         dados[remetenteId] = jogador;

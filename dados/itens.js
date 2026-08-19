@@ -1,12 +1,11 @@
 // ============================================================
-// ITENS DO RPG - VERSÃO COMPLETA
+// ITENS DO RPG - VERSÃO COMPLETA (COM LENDÁRIOS)
 // ============================================================
 const ITENS = {
 
 // =====================================================
 // ⚔️ GUERREIRO
 // =====================================================
-
 guerreiro_espada_madeira: {
     id: "guerreiro_espada_madeira",
     nome: "🪵 Espada de Madeira",
@@ -110,7 +109,6 @@ guerreiro_bracelete: {
 // =====================================================
 // 🧙 MAGO
 // =====================================================
-
 mago_cajado_madeira: {
     id: "mago_cajado_madeira",
     nome: "🪄 Cajado de Madeira",
@@ -216,7 +214,6 @@ mago_livro_sagrado: {
 // =====================================================
 // 🗡️ ASSASSINO
 // =====================================================
-
 assassino_adaga: {
     id: "assassino_adaga",
     nome: "🗡️ Adaga",
@@ -316,7 +313,6 @@ assassino_luva: {
 // =====================================================
 // 🏹 ARQUEIRO
 // =====================================================
-
 arqueiro_arco_curto: {
     id: "arqueiro_arco_curto",
     nome: "🏹 Arco Curto",
@@ -426,7 +422,6 @@ arqueiro_bota: {
 // =====================================================
 // 🧪 CONSUMÍVEIS / GERAIS
 // =====================================================
-
 pocao_vida: {
     id: "pocao_vida",
     nome: "🧪 Poção de Vida",
@@ -481,8 +476,188 @@ antidoto: {
     tipo: "consumivel",
     cura_status: true,
     valor: 150
-}
+},
 
+// =====================================================
+// 👑 ITENS LENDÁRIOS (DUNGEON)
+// =====================================================
+fragmento_da_honra: {
+    id: "fragmento_da_honra",
+    nome: "⚔️ Fragmento da Honra",
+    tipo: "acessorio",
+    ataque: 4,
+    defesa: 4,
+    critico: 4,
+    esquiva: 0,
+    vidaMax: 20,
+    manaMax: 0,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um fragmento do Coração do Mundo que pulsa com a energia dos antigos heróis."
+},
+
+espada_do_esquecimento: {
+    id: "espada_do_esquecimento",
+    nome: "🗡️ Espada do Esquecimento",
+    tipo: "arma",
+    classe: "guerreiro",
+    ataque: 25,
+    critico: 10,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Uma espada que faz os inimigos esquecerem seus medos."
+},
+
+machado_sombrio: {
+    id: "machado_sombrio",
+    nome: "🪓 Machado Sombrio",
+    tipo: "arma",
+    classe: "guerreiro",
+    ataque: 35,
+    defesa: -5,
+    critico: 15,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um machado amaldiçoado que dá poder a custo de defesa."
+},
+
+orbe_do_dragao: {
+    id: "orbe_do_dragao",
+    nome: "🐉 Orbe do Dragão Ancestral",
+    tipo: "acessorio",
+    classe: "mago",
+    ataque: 20,
+    defesa: 5,
+    critico: 15,
+    vidaMax: 50,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um orbe que pulsa com o poder de um dragão ancestral."
+},
+
+tridente_das_profundezas: {
+    id: "tridente_das_profundezas",
+    nome: "🌊 Tridente das Profundezas",
+    tipo: "arma",
+    classe: "guerreiro",
+    ataque: 40,
+    defesa: 5,
+    critico: 8,
+    vidaMax: 30,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um tridente forjado no fundo do mar."
+},
+
+cetro_do_sol: {
+    id: "cetro_do_sol",
+    nome: "☀️ Cetro do Sol Eterno",
+    tipo: "arma",
+    classe: "mago",
+    ataque: 22,
+    critico: 20,
+    vidaMax: 20,
+    manaMax: 40,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um cetro que canaliza a luz do próprio sol."
+},
+
+gelo_eterno: {
+    id: "gelo_eterno",
+    nome: "❄️ Gelo Eterno",
+    tipo: "acessorio",
+    classe: "arqueiro",
+    defesa: 30,
+    esquiva: 10,
+    vidaMax: 60,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um cristal de gelo que nunca derrete."
+},
+
+chama_infernal: {
+    id: "chama_infernal",
+    nome: "🔥 Chama Infernal",
+    tipo: "acessorio",
+    classe: "mago",
+    ataque: 25,
+    defesa: 8,
+    critico: 10,
+    vidaMax: 40,
+    manaMax: 20,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Uma chama que queima eternamente."
+},
+
+coroa_do_rei_morto: {
+    id: "coroa_do_rei_morto",
+    nome: "💀 Coroa do Rei Morto",
+    tipo: "acessorio",
+    classe: "assassino",
+    defesa: 25,
+    critico: 15,
+    vidaMax: 50,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "A coroa do rei que governou os mortos."
+},
+
+grimorio_arcano: {
+    id: "grimorio_arcano",
+    nome: "📖 Grimório Arcano",
+    tipo: "acessorio",
+    classe: "mago",
+    ataque: 18,
+    critico: 8,
+    vidaMax: 20,
+    manaMax: 60,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um livro de magia ancestral."
+},
+
+escudo_da_esperanca: {
+    id: "escudo_da_esperanca",
+    nome: "🛡️ Escudo da Esperança",
+    tipo: "armadura",
+    classe: "guerreiro",
+    defesa: 35,
+    esquiva: 5,
+    vidaMax: 80,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um escudo que brilha com luz divina."
+},
+
+arco_da_aurora: {
+    id: "arco_da_aurora",
+    nome: "🏹 Arco da Aurora",
+    tipo: "arma",
+    classe: "arqueiro",
+    ataque: 28,
+    critico: 20,
+    esquiva: 10,
+    vidaMax: 20,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Um arco que dispara flechas de luz."
+},
+
+adaga_da_lua: {
+    id: "adaga_da_lua",
+    nome: "🌙 Adaga da Lua",
+    tipo: "arma",
+    classe: "assassino",
+    ataque: 32,
+    critico: 18,
+    esquiva: 15,
+    vidaMax: 30,
+    valor: 0,
+    raridade: "lendario",
+    descricao: "Uma adaga que brilha sob a luz da lua."
+}
 };
 
 module.exports = ITENS;

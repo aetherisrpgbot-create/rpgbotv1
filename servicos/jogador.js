@@ -1,9 +1,8 @@
 // ============================================================
-// SISTEMA DE JOGADOR - XP, Níveis, Classes
+// SISTEMA DE JOGADOR - JSON PURA (FUNCIONAL)
 // ============================================================
 const { lerJogadores, escreverJogadores } = require("./banco");
 
-// ========== CLASSES DISPONÍVEIS ==========
 const CLASSES = {
     guerreiro: {
         dinheiro: 1.0,
@@ -28,7 +27,7 @@ const CLASSES = {
             { id: "bola_fogo", nome: "🔥 Bola de Fogo", dano: 18, custo_mana: 15, cooldown: 3, nivel: 1 },
             { id: "raio_arcano", nome: "⚡ Raio Arcano", dano: 30, custo_mana: 25, cooldown: 5, nivel: 5 },
             { id: "explosao_mana", nome: "💥 Explosão de Mana", dano: 55, custo_mana: 45, cooldown: 9, nivel: 10 },
-            { id: "meteoro_arcano", nome: "☄️ Meteoro Arcano", dano: 80, custo_mana: 80, cooldown: 15, nivel: 15 }
+            { id: "meteoro_arcano", nome: "☄️ Meteoro Arcano", dano: 80, custo_mana: 80, cooldown: 12, nivel: 15 }
         ]
     },
     arqueiro: {
@@ -59,48 +58,54 @@ const CLASSES = {
     }
 };
 
-// ========== OBTER JOGADOR ==========
+function criarJogadorPadrao(nome) {
+    return {
+        nome: nome || "Jogador",
+        xp: 0,
+        nivel: 1,
+        stamina: 100,
+        maxStamina: 100,
+        fatigue: 0,
+        saldo: 100,
+        banco: 0,
+        restEnd: 0,
+        cooldowns: {},
+        classe: "Sem Classe",
+        perguntasHoje: 0,
+        ultimoResetPerguntas: Date.now(),
+        segurancaAte: 0,
+        ultimoXP: 0,
+        vidaMax: 100,
+        vida: 100,
+        mana: 100,
+        manaMax: 100,
+        poder: 10,
+        defesa: 5,
+        critico: 5,
+        esquiva: 3,
+        inventario: {},
+        arma: null,
+        armadura: null,
+        acessorio: null,
+        trabalhosSeguidos: 0,
+        ultimoTrabalho: 0
+    };
+}
+
+// ============================================================
+// FUNÇÕES SÍNCRONAS (JSON)
+// ============================================================
+
 function getJogador(userId, nome) {
     const dados = lerJogadores();
-
-    if (!dados[userId]) {
-        dados[userId] = {
-            nome: nome || "Jogador",
-            xp: 0,
-            nivel: 1,
-            stamina: 100,
-            maxStamina: 100,
-            fatigue: 0,
-            saldo: 100,
-            banco: 0,
-            restEnd: 0,
-            cooldowns: {},
-            classe: "Sem Classe",
-            perguntasHoje: 0,
-            ultimoResetPerguntas: Date.now(),
-            segurancaAte: 0,
-            ultimoXP: 0,
-            vidaMax: 100,
-            vida: 100,
-            mana: 100,
-            manaMax: 100,
-            poder: 10,
-            defesa: 5,
-            critico: 5,
-            esquiva: 3,
-            inventario: {},
-            arma: null,
-            armadura: null,
-            acessorio: null,
-            trabalhosSeguidos: 0,
-            ultimoTrabalho: 0
-        };
+    let jogador = dados[userId];
+    if (!jogador) {
+        jogador = criarJogadorPadrao(nome);
+        dados[userId] = jogador;
         escreverJogadores(dados);
     }
-
-    const jogador = dados[userId];
     
-    // ===== PROTEÇÃO CONTRA DADOS FALTANDO =====
+    // Proteção
     jogador.nome ??= nome;
     jogador.xp ??= 0;
     jogador.nivel ??= 1;
@@ -121,7 +126,6 @@ function getJogador(userId, nome) {
     jogador.inventario ??= {};
     jogador.cooldowns ??= {};
     
-    // ===== SE INVENTÁRIO FOR ARRAY, CONVERTE PRA OBJETO =====
     if (Array.isArray(jogador.inventario)) {
         const novo = {};
         for (const item of jogador.inventario) {
@@ -130,12 +134,12 @@ function getJogador(userId, nome) {
         jogador.inventario = novo;
     }
 
-    // ===== REGENERAÇÃO POR DESCANSO =====
     if (jogador.restEnd && Date.now() >= jogador.restEnd) {
         jogador.stamina = jogador.maxStamina;
         jogador.fatigue = 0;
         jogador.restEnd = 0;
         jogador.vida = jogador.vidaMax;
+        dados[userId] = jogador;
         escreverJogadores(dados);
     }
 
@@ -143,50 +147,13 @@ function getJogador(userId, nome) {
     return jogador;
 }
 
-// ========== ATUALIZAR ATRIBUTOS ==========
-function atualizarAtributos(jogador) {
-    if (!jogador.nivel || jogador.nivel < 1) jogador.nivel = 1;
-    
-    // ===== ATRIBUTOS BASE POR NÍVEL =====
-    jogador.vidaMax = 100 + (jogador.nivel * 5);
-    jogador.poder = 10 + (jogador.nivel * 2);
-    jogador.defesa = 5 + Math.floor(jogador.nivel * 0.8);
-    jogador.critico = 5 + Math.floor(jogador.nivel / 10);
-    jogador.esquiva = 3 + Math.floor(jogador.nivel / 15);
-    jogador.maxStamina = 100 + (jogador.nivel * 5);
-    jogador.manaMax = 100 + (jogador.nivel * 3);
-
-    // ===== BÔNUS DE CLASSE =====
-    const classe = jogador.classe?.toLowerCase();
-    if (CLASSES && CLASSES[classe]) {
-        const classeData = CLASSES[classe];
-        jogador.vidaMax += (classeData.hp || 0) - 100;
-        jogador.manaMax += (classeData.mana || 0) - 100;
-        jogador.defesa += (classeData.defesa || 0) - 5;
-    }
-
-    // ===== GARANTE QUE VIDA E MANA NÃO ULTRAPASSEM O MÁXIMO =====
-    jogador.vida = Math.min(jogador.vida || jogador.vidaMax, jogador.vidaMax);
-    jogador.mana = Math.min(jogador.mana || jogador.manaMax, jogador.manaMax);
-    
-    if (jogador.vida < 0) jogador.vida = 0;
-    if (jogador.mana < 0) jogador.mana = 0;
-    if (jogador.stamina < 0) jogador.stamina = 0;
-}
-
-// ========== ADICIONAR XP ==========
 function adicionarXP(userId, nome, quantidade = 10) {
     const dados = lerJogadores();
-
-    if (!dados[userId]) {
-        dados[userId] = {
-            nome,
-            xp: 0,
-            nivel: 1
-        };
+    let jogador = dados[userId];
+    if (!jogador) {
+        jogador = criarJogadorPadrao(nome);
+        dados[userId] = jogador;
     }
-
-    const jogador = dados[userId];
 
     jogador.xp += quantidade;
 
@@ -194,16 +161,14 @@ function adicionarXP(userId, nome, quantidade = 10) {
     let niveisGanhos = 0;
 
     while (jogador.xp >= jogador.nivel * 100) {
-        const xpNecessario = jogador.nivel * 100;
-
-        jogador.xp -= xpNecessario;
+        jogador.xp -= jogador.nivel * 100;
         jogador.nivel++;
         niveisGanhos++;
         subiu = true;
-
         atualizarAtributos(jogador);
     }
 
+    dados[userId] = jogador;
     escreverJogadores(dados);
 
     return {
@@ -214,15 +179,6 @@ function adicionarXP(userId, nome, quantidade = 10) {
     };
 }
 
-// ========== RANKING ==========
-function getRankingXP() {
-    const dados = lerJogadores();
-    return Object.entries(dados)
-        .map(([id, val]) => ({ id, ...val }))
-        .sort((a, b) => (b.nivel - a.nivel) || (b.xp - a.xp));
-}
-
-// ========== ATUALIZAR SALDO ==========
 function atualizarSaldo(userId, delta, tipo = 'saldo') {
     const dados = lerJogadores();
     if (!dados[userId]) return false;
@@ -234,7 +190,40 @@ function atualizarSaldo(userId, delta, tipo = 'saldo') {
     return true;
 }
 
-// ========== EXPORTAÇÕES ==========
+function atualizarAtributos(jogador) {
+    if (!jogador.nivel || jogador.nivel < 1) jogador.nivel = 1;
+    
+    jogador.vidaMax = 100 + (jogador.nivel * 5);
+    jogador.poder = 10 + (jogador.nivel * 2);
+    jogador.defesa = 5 + Math.floor(jogador.nivel * 0.8);
+    jogador.critico = 5 + Math.floor(jogador.nivel / 10);
+    jogador.esquiva = 3 + Math.floor(jogador.nivel / 15);
+    jogador.maxStamina = 100 + (jogador.nivel * 5);
+    jogador.manaMax = 100 + (jogador.nivel * 3);
+
+    const classe = jogador.classe?.toLowerCase();
+    if (CLASSES && CLASSES[classe]) {
+        const classeData = CLASSES[classe];
+        jogador.vidaMax += (classeData.hp || 0) - 100;
+        jogador.manaMax += (classeData.mana || 0) - 100;
+        jogador.defesa += (classeData.defesa || 0) - 5;
+    }
+
+    jogador.vida = Math.min(jogador.vida || jogador.vidaMax, jogador.vidaMax);
+    jogador.mana = Math.min(jogador.mana || jogador.manaMax, jogador.manaMax);
+    
+    if (jogador.vida < 0) jogador.vida = 0;
+    if (jogador.mana < 0) jogador.mana = 0;
+    if (jogador.stamina < 0) jogador.stamina = 0;
+}
+
+function getRankingXP() {
+    const dados = lerJogadores();
+    return Object.entries(dados)
+        .map(([id, val]) => ({ id, ...val }))
+        .sort((a, b) => (b.nivel - a.nivel) || (b.xp - a.xp));
+}
+
 module.exports = {
     CLASSES,
     getJogador,

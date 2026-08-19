@@ -2,47 +2,72 @@
   "7211669573681@lid": {
     "ativas": [
       {
-        "id": "trabalhar_200",
-        "nome": "💎 Trabalhador Supremo",
-        "descricao": "Trabalhe 200 vezes",
-        "tipo": "trabalhar",
-        "quantidade": 200,
-        "recompensa": {
-          "xp": 6000,
-          "dinheiro": 15000
-        },
-        "progresso": 85,
-        "concluida": false
-      },
-      {
-        "id": "perguntas_200",
-        "nome": "📖 Sábio Supremo",
-        "descricao": "Responda 200 perguntas",
-        "tipo": "perguntas",
-        "quantidade": 200,
-        "recompensa": {
-          "xp": 8000,
-          "dinheiro": 15000
-        },
-        "progresso": 0,
-        "concluida": false
-      },
-      {
-        "id": "skills_150",
-        "nome": "⚡ Mestre Supremo",
-        "descricao": "Use 150 skills",
+        "id": "skills_5",
+        "nome": "✨ Aprendiz de Habilidades",
+        "descricao": "Use 5 skills",
         "tipo": "skills",
-        "quantidade": 150,
+        "quantidade": 5,
         "recompensa": {
-          "xp": 8000,
-          "dinheiro": 12000
+          "xp": 200,
+          "dinheiro": 250
+        },
+        "progresso": 1,
+        "concluida": false
+      },
+      {
+        "id": "skills_5",
+        "nome": "✨ Aprendiz de Habilidades",
+        "descricao": "Use 5 skills",
+        "tipo": "skills",
+        "quantidade": 5,
+        "recompensa": {
+          "xp": 200,
+          "dinheiro": 250
+        },
+        "progresso": 1,
+        "concluida": false
+      },
+      {
+        "id": "skills_5",
+        "nome": "✨ Aprendiz de Habilidades",
+        "descricao": "Use 5 skills",
+        "tipo": "skills",
+        "quantidade": 5,
+        "recompensa": {
+          "xp": 200,
+          "dinheiro": 250
         },
         "progresso": 0,
         "concluida": false
       }
     ],
-    "concluidas": [],
-    "ultimoReset": "Sat Jul 04 2026"
+    "concluidas": [
+      {
+        "id": "matar_5_dificil",
+        "nome": "🔥 Matador de Monstros"
+      },
+      {
+        "id": "matar_10",
+        "nome": "⚔️ Guerreiro Experiente"
+      },
+      {
+        "id": "treinar_5",
+        "nome": "🏋️ Treinador Dedicado"
+      },
+      {
+        "id": "matar_10",
+        "nome": "⚔️ Guerreiro Experiente"
+      },
+      {
+        "id": "trabalhar_10",
+        "nome": "💼 Trabalhador Dedicado"
+      },
+      {
+        "id": "perguntas_10",
+        "nome": "📚 Mestre do Quiz"
+      }
+    ],
+    "ultimoReset": "Mon Jul 06 2026"
   },
   "94296728445042@lid": {
     "ativas": [
@@ -135,14 +160,14 @@
         "concluida": false
       },
       {
-        "id": "trabalhar_10",
-        "nome": "💼 Trabalhador Dedicado",
-        "descricao": "Trabalhe 10 vezes",
-        "tipo": "trabalhar",
-        "quantidade": 10,
+        "id": "matar_5_dificil",
+        "nome": "🔥 Matador de Monstros",
+        "descricao": "Derrote 5 inimigos difíceis",
+        "tipo": "matar",
+        "quantidade": 5,
         "recompensa": {
-          "xp": 150,
-          "dinheiro": 400
+          "xp": 400,
+          "dinheiro": 600
         },
         "progresso": 0,
         "concluida": false
@@ -152,8 +177,79 @@
       {
         "id": "perguntas_10",
         "nome": "📚 Mestre do Quiz"
+      },
+      {
+        "id": "trabalhar_10",
+        "nome": "💼 Trabalhador Dedicado"
       }
     ],
     "ultimoReset": "Sat Jul 04 2026"
+  },
+  "558199433575@s.whatsapp.net": {
+    "ativas": [],
+    "concluidas": [],
+    "ultimoReset": null
+  },
+  "16282858578121@lid": {
+    "ativas": [
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso",
+        "descricao": "Responda 3 perguntas",
+        "tipo": "perguntas",
+        "quantidade": 3,
+        "recompensa": {
+          "xp": 60,
+          "dinheiro": 100
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso",
+        "descricao": "Responda 3 perguntas",
+        "tipo": "perguntas",
+        "quantidade": 3,
+        "recompensa": {
+          "xp": 60,
+          "dinheiro": 100
+        },
+        "progresso": 0,
+        "concluida": false
+      },
+      {
+        "id": "perguntas_3",
+        "nome": "🧠 Curioso",
+        "descricao": "Responda 3 perguntas",
+        "tipo": "perguntas",
+        "quantidade": 3,
+        "recompensa": {
+          "xp": 60,
+          "dinheiro": 100
+        },
+        "progresso": 0,
+        "concluida": false
+      }
+    ],
+    "concluidas": [
+      {
+        "id": "treinar_2",
+        "nome": "💪 Treinador Iniciante"
+      },
+      {
+        "id": "matar_1",
+        "nome": "🧪 Iniciante em Combate"
+      },
+      {
+        "id": "matar_3",
+        "nome": "🐺 Aprendiz de Guerreiro"
+      },
+      {
+        "id": "matar_3",
+        "nome": "🐺 Aprendiz de Guerreiro"
+      }
+    ],
+    "ultimoReset": null
   }
 }

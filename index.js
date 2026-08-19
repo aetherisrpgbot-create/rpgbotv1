@@ -13,10 +13,13 @@ const comandos = require("./comandos/index.js");
 const { getTexto } = require("./utils/helpers.js");
 const { setupAutomatico } = require("./handlers/automatico.js");
 const { isAutorizado } = require("./config/auth.js");
-const { verificarCooldown } = require("./utils/antispam.js");
+const { logComando, atualizarEstatisticas, atualizarPerfilAvancado } = require("./servicos/database");
 
 const PASTA_AUTH = './auth_info';
 const PREFIXO = '!';
+
+// ===== PREVENÇÃO DE MENSAGENS DUPLICADAS =====
+const processedMessages = new Set();
 
 async function startBot() {
     const logger = pino({ level: 'silent' });
@@ -31,11 +34,11 @@ async function startBot() {
 
     sock.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect, qr } = update;
-        
+
         if (qr) {
             console.log('📱 QR Code gerado!');
         }
-        
+
         if (connection === 'close') {
             const code = lastDisconnect?.error?.output?.statusCode;
             console.log(`🔴 Desconectado. Código: ${code}`);
@@ -49,7 +52,6 @@ async function startBot() {
             console.log('✅ BOT CONECTADO!');
             console.log('👑 Bot criado por Widnes Santos');
             console.log('📦 Sistema RPG carregado com sucesso!');
-            
             setupAutomatico(sock);
         }
     });
@@ -68,48 +70,73 @@ async function startBot() {
         console.log('Digite esse código no WhatsApp → Configurações → Dispositivos vinculados → Vincular com código.');
     }
 
+    // ============================================================
+    // 📨 EVENTO DE MENSAGEM (APENAS UM!)
+    // ============================================================
     sock.ev.on('messages.upsert', async ({ messages }) => {
         const msg = messages[0];
         if (!msg?.message || msg.key?.fromMe) return;
+
+        // ===== PREVINE MENSAGENS DUPLICADAS =====
+        const msgId = msg.key.id;
+        if (processedMessages.has(msgId)) return;
+        processedMessages.add(msgId);
+
+        setTimeout(() => {
+            processedMessages.delete(msgId);
+        }, 5000);
 
         const remoteJid = msg.key.remoteJid;
         const remetenteId = msg.key.participant || remoteJid;
         const texto = getTexto(msg);
         const isGroup = remoteJid?.endsWith('@g.us');
 
-// ===== SISTEMA DE PROTEÇÃO =====
-if (!isAutorizado(remetenteId, remoteJid)) {
-    return;
-}
+        // ===== SISTEMA DE PROTEÇÃO =====
+        if (!isAutorizado(remetenteId, remoteJid)) {
+            return;
+        }
 
+        // ===== ANTI-VIEWONCE (SEMPRE RODA) =====
+        if (isGroup) {
+            try {
+                const { handleAntiViewOnce } = require("./handlers/anti_viewonce");
+                await handleAntiViewOnce(sock, msg, remoteJid);
+            } catch (err) {
+                console.log("⚠️ Erro no anti-viewonce:", err.message);
+            }
+        }
 
+        // ===== PROCESSAMENTO DE COMANDOS =====
         if (texto.startsWith(PREFIXO)) {
             const partes = texto.slice(1).trim().split(/\s+/);
             const cmdNome = partes[0].toLowerCase();
             const args = partes.slice(1);
 
-	// ===== ANTI-SPAM (COOLDOWN) =====
-const cooldownCheck = verificarCooldown(remetenteId, cmdNome);
-if (!cooldownCheck.permitido) {
-    await sock.sendMessage(remoteJid, { text: cooldownCheck.mensagem });
-    return;
-}
-            
-           console.log(`👉 Comando: ${cmdNome}`);
+            console.log(`👉 Comando: ${cmdNome}`);
 
+            // ============================================================
+            // 🔥 LOGS E ESTATÍSTICAS (BANCO DE DADOS)
+            // ============================================================
+            logComando(remetenteId, cmdNome, args, remoteJid);
+            atualizarEstatisticas(cmdNome, remetenteId);
+            atualizarPerfilAvancado(remetenteId);
+
+            // ============================================================
+            // 🎯 EXECUTA O COMANDO
+            // ============================================================
             const comando = comandos.get(cmdNome);
             if (comando) {
                 try {
                     await comando(sock, msg, args, remetenteId, remoteJid, isGroup);
                 } catch (err) {
                     console.error(`❌ Erro no comando ${cmdNome}:`, err);
-                    await sock.sendMessage(remoteJid, { 
-                        text: '❌ Ocorreu um erro ao executar esse comando.' 
+                    await sock.sendMessage(remoteJid, {
+                        text: '❌ Ocorreu um erro ao executar esse comando.'
                     });
                 }
             } else {
-                await sock.sendMessage(remoteJid, { 
-                    text: `❌ Comando *${cmdNome}* não encontrado.\nUse !menu para ver os comandos disponíveis.` 
+                await sock.sendMessage(remoteJid, {
+                    text: `❌ Comando *${cmdNome}* não encontrado.\nUse !menu para ver os comandos disponíveis.`
                 });
             }
         }

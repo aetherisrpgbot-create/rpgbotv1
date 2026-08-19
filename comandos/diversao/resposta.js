@@ -1,120 +1,68 @@
-// !resposta - Responde a pergunta ativa
+// !resposta - Responde uma pergunta do quiz
 const { getJogador, adicionarXP, atualizarSaldo } = require("../../servicos/jogador");
 const { lerJogadores, escreverJogadores } = require("../../servicos/banco");
-const { normalizarTexto } = require("../../utils/helpers");
-const perguntaCommand = require("./pergunta");
-const { progressoMissao } = require("../../servicos/missoes");
 
 module.exports = {
     nome: "resposta",
     executar: async (sock, msg, args, remetenteId, remoteJid) => {
-        const perguntaAtiva = perguntaCommand.getPerguntaAtiva(remoteJid);
-
-        if (!perguntaAtiva) {
+        const { getPerguntaAtiva, removerPergunta } = require("./pergunta");
+        
+        const pergunta = getPerguntaAtiva(remoteJid);
+        if (!pergunta) {
             return sock.sendMessage(remoteJid, {
-                text: "❌ Não há pergunta ativa.\n\nUse !pergunta para começar!"
+                text: "❌ Não há pergunta ativa no momento.\nDigite !pergunta para uma nova."
             });
         }
 
-        const jogador = getJogador(remetenteId, msg.pushName || "Usuário");
-        const dados = lerJogadores();
-
-        // ===== LIMITE DIÁRIO =====
-        jogador.perguntasHoje ??= 0;
-        jogador.ultimoResetPerguntas ??= Date.now();
-
-        const hoje = new Date().toDateString();
-        const ultimoDia = new Date(jogador.ultimoResetPerguntas).toDateString();
-
-        if (hoje !== ultimoDia) {
-            jogador.perguntasHoje = 0;
-            jogador.ultimoResetPerguntas = Date.now();
-        }
-
-        if (jogador.perguntasHoje >= 20) {
-            return sock.sendMessage(remoteJid, {
-                text: `🚫 *LIMITE ATINGIDO!*\n\n📚 Você já respondeu 20 perguntas hoje.\n⏳ Volte amanhã para mais desafios!`
-            });
-        }
-
-        // ===== VERIFICA A RESPOSTA =====
-        const respostaUsuario = normalizarTexto(args.join(" "));
-        const respostaCorreta = normalizarTexto(perguntaAtiva.resposta);
-
+        const respostaUsuario = args.join(" ").trim().toLowerCase();
         if (!respostaUsuario) {
             return sock.sendMessage(remoteJid, {
-                text: `❌ Digite sua resposta!\n\nExemplo: !resposta brasilia`
+                text: "❌ Digite sua resposta!\nExemplo: !resposta 42"
             });
         }
 
-        // ===== ACERTOU! =====
+        const respostaCorreta = pergunta.resposta.toLowerCase();
+
         if (respostaUsuario === respostaCorreta) {
-            atualizarSaldo(remetenteId, 100, 'saldo');
-            const result = adicionarXP(remetenteId, jogador.nome, 15);
+            // ===== RESPONDEU CERTO =====
+            removerPergunta(remoteJid);
 
-            jogador.perguntasHoje++;
-            dados[remetenteId] = jogador;
-            escreverJogadores(dados);
-
-            perguntaCommand.removerPergunta(remoteJid);
-
-            // ===== PROGRESSO DE MISSÃO (PERGUNTAS) =====
-            const missoesConcluidas = progressoMissao(remetenteId, "perguntas");
-            let msgMissao = "";
-            if (missoesConcluidas.length > 0) {
-                msgMissao = "\n🎯 *MISSÕES ATUALIZADAS!*\n";
-                for (const m of missoesConcluidas) {
-                    msgMissao += `✅ *${m.nome}* concluída!\n`;
-                }
+            // ===== ADICIONA RECOMPENSAS =====
+            const jogador = getJogador(remetenteId, msg.pushName || "Jogador");
+            
+            // Incrementa contador de perguntas
+            const dados = lerJogadores();
+            if (dados[remetenteId]) {
+                dados[remetenteId].perguntasHoje = (dados[remetenteId].perguntasHoje || 0) + 1;
+                dados[remetenteId].ultimoResetPerguntas = dados[remetenteId].ultimoResetPerguntas || Date.now();
+                escreverJogadores(dados);
             }
 
-            const reacoes = ["🎉", "⭐", "🔥", "💪", "🏆", "👏", "🎊", "✨", "🌟", "🎯"];
-            const reacao = reacoes[Math.floor(Math.random() * reacoes.length)];
+            // Adiciona XP e dinheiro
+            const result = adicionarXP(remetenteId, jogador.nome, 15);
+            atualizarSaldo(remetenteId, 100, 'saldo');
+
+            // Pega o total atualizado
+            const dadosAtualizados = lerJogadores();
+            const perguntasHoje = dadosAtualizados[remetenteId]?.perguntasHoje || 0;
 
             await sock.sendMessage(remoteJid, {
-                text: `${reacao} *RESPOSTA CORRETA!* ${reacao}\n\n` +
-                      `✅ Parabéns, *${jogador.nome}*! Você acertou!\n\n` +
+                text: `✅ *RESPOSTA CORRETA!*\n\n` +
+                      `🎉 Parabéns, você acertou!\n\n` +
                       `💰 +R$100\n` +
                       `⭐ +15 XP\n` +
-                      `📚 ${jogador.perguntasHoje}/20 hoje\n\n` +
-                      (result.subiu ? `🎉 *VOCÊ SUBIU PARA O NÍVEL ${result.nivel}!*` : "") +
-                      `${msgMissao}\n\n` +
-                      `🧠 Use !pergunta para continuar!`
+                      (result.subiu ? `🎊 *UP!* Você subiu para o nível ${result.nivel}!\n` : "") +
+                      `📊 Perguntas hoje: ${perguntasHoje}/20\n\n` +
+                      `🔍 Resposta correta: *${pergunta.resposta}*`
             });
 
-            return;
-        }
-
-        // ===== ERROU =====
-        jogador.errosHoje = (jogador.errosHoje || 0) + 1;
-        dados[remetenteId] = jogador;
-        escreverJogadores(dados);
-
-        // 🔥 DICA INTELIGENTE
-        const palavra = respostaCorreta;
-        let dica = "";
-
-        if (palavra.length <= 3) {
-            dica = palavra[0] + " _".repeat(palavra.length - 1);
-        } else if (palavra.length <= 6) {
-            dica = palavra[0] + " _".repeat(palavra.length - 2) + palavra[palavra.length - 1];
         } else {
-            dica = palavra.slice(0, 2) + " _".repeat(palavra.length - 3) + palavra[palavra.length - 1];
+            // ===== RESPONDEU ERRADO =====
+            await sock.sendMessage(remoteJid, {
+                text: `❌ *RESPOSTA ERRADA!*\n\n` +
+                      `😅 Que pena, tente novamente!\n\n` +
+                      `💡 Dica: ${pergunta.dica || "Leia atentamente a pergunta."}`
+            });
         }
-
-        let dicaTamanho = "";
-        if (palavra.length <= 3) dicaTamanho = "curta";
-        else if (palavra.length <= 6) dicaTamanho = "média";
-        else if (palavra.length <= 9) dicaTamanho = "longa";
-        else dicaTamanho = "bem longa";
-
-        await sock.sendMessage(remoteJid, {
-            text: `❌ *RESPOSTA INCORRETA!*\n\n` +
-                  `💡 *Dica:* A resposta é uma palavra *${dicaTamanho}*\n` +
-                  `🔍 *Formato:* ${dica}\n\n` +
-                  `📝 Tente novamente:\n` +
-                  `!resposta <sua resposta>\n\n` +
-                  `💪 Você consegue!`
-        });
     }
 };

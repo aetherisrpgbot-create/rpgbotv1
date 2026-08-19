@@ -1,21 +1,25 @@
+// comandos/midia/play.js - VERSÃO DEFINITIVA
 const { execFile } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const os = require("os");
 
 // ═══════════════════════════════════════════
-//          🎵 SISTEMA DE MÚSICA 🎵
+//          CONFIGURAÇÕES
 // ═══════════════════════════════════════════
+
+const COOLDOWN_MS = 15000;
+const TEMP_DIR = os.tmpdir();
+const COOKIES_FILE = path.join(__dirname, '../../cookies.txt');
 
 const musicQueue = [];
 let isProcessingMusic = false;
 const userCooldown = new Map();
-const userLimits = new Map();
-const LIMITE_DIARIO = 10;
-const COOLDOWN_MS = 15000;
-const TEMP_DIR = './temp';
+
+const USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
 // ═══════════════════════════════════════════
-//            PROCESSAR FILA
+//          PROCESSAR FILA
 // ═══════════════════════════════════════════
 
 async function processMusicQueue(sock) {
@@ -24,157 +28,95 @@ async function processMusicQueue(sock) {
 
     const { remoteJid, query } = musicQueue.shift();
 
-    if (!fs.existsSync(TEMP_DIR)) fs.mkdirSync(TEMP_DIR, { recursive: true });
-
     const fileName = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
     const audioPath = `${TEMP_DIR}/${fileName}.mp3`;
 
-    // Usa execFile com argumentos separados (previne command injection)
+    const isUrl = query.startsWith('http://') || query.startsWith('https://');
+
+    let searchQuery = query;
+    if (!isUrl) {
+        searchQuery = `ytsearch1:${query}`;
+    }
+
+    // 🔥 COMANDO QUE FUNCIONOU
     const ytArgs = [
-        '-f', 'bestaudio',
-        '--extract-audio',
-        '--audio-format', 'mp3',
-        '--audio-quality', '2',
-        '--write-thumbnail',
-        '--convert-thumbnails', 'jpg',
-        '--write-info-json',
-        '--no-playlist',
-        '--max-filesize', '50M',
-        '-o', audioPath,
-        `ytsearch1:${query}`
+        "--cookies", COOKIES_FILE,
+        "--extractor-args", "youtube:player_client=android",
+        "--user-agent", USER_AGENT,
+        "-f", "bestaudio",
+        "-x",
+        "--audio-format", "mp3",
+        "--audio-quality", "0",
+        "--no-playlist",
+        "--max-filesize", "50M",
+        "-o", audioPath,
+        searchQuery,
     ];
 
     console.log(`🎵 Baixando: ${query}`);
+    console.log(`📝 yt-dlp ${ytArgs.join(' ')}`);
 
-    execFile('yt-dlp', ytArgs, { timeout: 60000 }, async (error) => {
-        if (error || !fs.existsSync(audioPath)) {
-            // Tenta novamente sem thumbnail
-            const ytArgs2 = [
-                '-f', 'bestaudio',
-                '--extract-audio',
-                '--audio-format', 'mp3',
-                '--audio-quality', '2',
-                '--no-playlist',
-                '--max-filesize', '50M',
-                '-o', audioPath,
-                `ytsearch1:${query}`
-            ];
-
-            execFile('yt-dlp', ytArgs2, { timeout: 60000 }, async (err2) => {
-                if (err2 || !fs.existsSync(audioPath)) {
-                    await sock.sendMessage(remoteJid, {
-                        text: `╔══════════════════════╗\n` +
-                              `║   ❌ *MÚSICA NÃO ENCONTRADA*\n` +
-                              `╚══════════════════════╝\n\n` +
-                              `🔍 Não encontrei resultados para:\n` +
-                              `    _"${query}"_\n\n` +
-                              `💡 *Dicas:*\n` +
-                              `  • Tente com o nome do artista\n` +
-                              `  • Verifique a ortografia\n` +
-                              `  • Use: !play artista - música`
-                    });
-                    isProcessingMusic = false;
-                    processMusicQueue(sock);
-                    return;
-                }
-                await enviarAudio(sock, remoteJid, audioPath, null, query);
-            });
-            return;
-        }
-
-        // Lê informações do vídeo
-        let info = null;
-        const infoFile = `${TEMP_DIR}/${fileName}.info.json`;
-        if (fs.existsSync(infoFile)) {
-            try {
-                info = JSON.parse(fs.readFileSync(infoFile, 'utf8'));
-                fs.unlinkSync(infoFile);
-            } catch (e) {}
-        }
-
-        await enviarAudio(sock, remoteJid, audioPath, info, query);
-    });
-}
-
-// ═══════════════════════════════════════════
-//             ENVIAR ÁUDIO
-// ═══════════════════════════════════════════
-
-async function enviarAudio(sock, remoteJid, audioPath, info, query) {
     try {
-        const titulo = info?.title || query || path.basename(audioPath, '.mp3');
-        const canal = info?.channel || info?.uploader || 'YouTube';
-        const url = info?.webpage_url || '';
-        const duracao = info?.duration ? formatDuration(info.duration) : '??:??';
-
-        // Procura thumbnail
-        let thumbBuffer = null;
-        const baseName = path.basename(audioPath, '.mp3');
-        const files = fs.readdirSync(TEMP_DIR);
-        const thumbFiles = files.filter(f =>
-            f.startsWith(baseName) &&
-            (f.endsWith('.jpg') || f.endsWith('.jpeg') || f.endsWith('.png') || f.endsWith('.webp'))
-        );
-
-        if (thumbFiles.length > 0) {
-            const thumbPath = path.join(TEMP_DIR, thumbFiles[0]);
-            thumbBuffer = fs.readFileSync(thumbPath);
-            fs.unlinkSync(thumbPath);
-        }
-
-        // ═══ MENSAGEM BONITA COM CARD ═══
-        const msgTexto =
-            `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
-            `┃   🎶 *NOW PLAYING*          \n` +
-            `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
-            `🎵 *${titulo}*\n\n` +
-            `┌─────────────────────\n` +
-            `│ 🎤 Artista: ${canal}\n` +
-            `│ ⏱️ Duração: ${duracao}\n` +
-            `│ 📀 Qualidade: Alta (MP3)\n` +
-            `└─────────────────────\n\n` +
-            `${url ? `🔗 ${url}\n\n` : ''}` +
-            `▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️\n` +
-            `_Enviando áudio..._`;
-
-        if (thumbBuffer && url) {
-            await sock.sendMessage(remoteJid, {
-                text: msgTexto,
-                contextInfo: {
-                    externalAdReply: {
-                        title: `🎵 ${titulo}`,
-                        body: `${canal} • ${duracao}`,
-                        thumbnail: thumbBuffer,
-                        mediaType: 1,
-                        mediaUrl: url,
-                        sourceUrl: url
-                    }
-                }
+        await new Promise((resolve, reject) => {
+            execFile("yt-dlp", ytArgs, { timeout: 120000 }, (error) => {
+                if (error) reject(error);
+                else resolve();
             });
-        } else {
-            await sock.sendMessage(remoteJid, { text: msgTexto });
-        }
-
-        // Envia o áudio
-        await sock.sendMessage(remoteJid, {
-            audio: { url: audioPath },
-            mimetype: 'audio/mp4',
-            fileName: `${titulo}.mp3`
         });
 
-        // Limpa arquivo
-        if (fs.existsSync(audioPath)) fs.unlinkSync(audioPath);
+        if (!fs.existsSync(audioPath) || fs.statSync(audioPath).size < 100) {
+            throw new Error("Arquivo não encontrado");
+        }
+
+        await enviarAudio(sock, remoteJid, audioPath, query);
 
     } catch (err) {
-        console.error("❌ ERRO enviarAudio:", err);
-        await sock.sendMessage(remoteJid, {
-            text: `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
-                  `┃   ⚠️ *ERRO AO ENVIAR*       \n` +
-                  `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
-                  `Ocorreu um erro ao enviar a música.\n` +
-                  `Tente novamente em alguns segundos!`
-        });
-        if (fs.existsSync(audioPath)) fs.unlinkSync(audioPath);
+        console.log(`⚠️ Falha: ${err.message}`);
+
+        // 🔥 FALLBACK: Sem filtro
+        try {
+            const ytArgs2 = [
+                "--cookies", COOKIES_FILE,
+                "--extractor-args", "youtube:player_client=android",
+                "--user-agent", USER_AGENT,
+                "-x",
+                "--audio-format", "mp3",
+                "--no-playlist",
+                "-o", audioPath,
+                searchQuery,
+            ];
+
+            console.log(`📝 yt-dlp (fallback) ${ytArgs2.join(' ')}`);
+
+            await new Promise((resolve, reject) => {
+                execFile("yt-dlp", ytArgs2, { timeout: 120000 }, (error) => {
+                    if (error) reject(error);
+                    else resolve();
+                });
+            });
+
+            if (!fs.existsSync(audioPath) || fs.statSync(audioPath).size < 100) {
+                throw new Error("Arquivo não encontrado no fallback");
+            }
+
+            await enviarAudio(sock, remoteJid, audioPath, query);
+
+        } catch (err2) {
+            console.log(`⚠️ Fallback falhou: ${err2.message}`);
+
+            await sock.sendMessage(remoteJid, {
+                text: `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
+                      `┃   ❌ *MÚSICA NÃO ENCONTRADA*\n` +
+                      `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
+                      `🔍 Não encontrei resultados para:\n` +
+                      `    _"${query}"_\n\n` +
+                      `💡 *Dicas:*\n` +
+                      `  • Tente com o nome do artista\n` +
+                      `  • Verifique a ortografia\n` +
+                      `  • Use: !play artista - música\n` +
+                      `  • Use um link do YouTube`,
+            });
+        }
     }
 
     isProcessingMusic = false;
@@ -182,39 +124,82 @@ async function enviarAudio(sock, remoteJid, audioPath, info, query) {
 }
 
 // ═══════════════════════════════════════════
-//           FUNÇÕES AUXILIARES
+//             ENVIAR ÁUDIO
 // ═══════════════════════════════════════════
 
-function formatDuration(seconds) {
-    const min = Math.floor(seconds / 60);
-    const sec = Math.floor(seconds % 60);
-    return `${min}:${sec.toString().padStart(2, '0')}`;
-}
+async function enviarAudio(sock, remoteJid, audioPath, query) {
+    try {
+        const stats = fs.statSync(audioPath);
+        const tamanhoMB = Math.round(stats.size / (1024 * 1024));
+        const audioBuffer = fs.readFileSync(audioPath);
 
-function sanitizeQuery(query) {
-    // Remove caracteres potencialmente perigosos
-    return query.replace(/[`$\\]/g, '').slice(0, 200);
+        const msgTexto =
+            `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
+            `┃   🎶 *NOW PLAYING*          \n` +
+            `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
+            `🎵 *${query}*\n\n` +
+            `┌─────────────────────\n` +
+            `│ 📀 Qualidade: MP3 320kbps\n` +
+            `│ 📦 Tamanho: ${tamanhoMB}MB\n` +
+            `└─────────────────────\n\n` +
+            `▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️\n` +
+            `📥 *Para baixar:* Toque no arquivo e salve!`;
+
+        await sock.sendMessage(remoteJid, { text: msgTexto });
+
+        await sock.sendMessage(remoteJid, {
+            document: audioBuffer,
+            mimetype: "audio/mpeg",
+            fileName: `${query.substring(0, 50)}.mp3`,
+            caption: `🎵 *${query}*\n📦 ${tamanhoMB}MB`,
+        });
+
+        try {
+            await sock.sendMessage(remoteJid, {
+                audio: audioBuffer,
+                mimetype: "audio/mpeg",
+                fileName: `${query.substring(0, 30)}.mp3`,
+            });
+        } catch (e) {
+            console.log("⚠️ Não foi possível enviar como áudio.");
+        }
+
+        if (fs.existsSync(audioPath)) fs.unlinkSync(audioPath);
+
+    } catch (err) {
+        console.error("❌ ERRO enviarAudio:", err);
+        await sock.sendMessage(remoteJid, {
+            text: `❌ Erro ao enviar música. Tente novamente.`,
+        });
+        if (fs.existsSync(audioPath)) fs.unlinkSync(audioPath);
+    }
 }
 
 // ═══════════════════════════════════════════
 //          LIMPEZA AUTOMÁTICA
 // ═══════════════════════════════════════════
 
-setInterval(() => {
+function limparTemp() {
     if (fs.existsSync(TEMP_DIR)) {
         const files = fs.readdirSync(TEMP_DIR);
-        const now = Date.now();
-        files.forEach(file => {
+        let count = 0;
+        files.forEach((file) => {
             const filePath = path.join(TEMP_DIR, file);
             try {
-                const stats = fs.statSync(filePath);
-                if (now - stats.mtimeMs > 1800000) {
+                if (file.startsWith("audio_") && file.endsWith(".mp3")) {
                     fs.unlinkSync(filePath);
+                    count++;
                 }
             } catch (e) {}
         });
+        if (count > 0) {
+            console.log(`🧹 Limpeza: ${count} arquivos removidos.`);
+        }
     }
-}, 3600000);
+}
+
+setInterval(limparTemp, 1800000);
+setTimeout(limparTemp, 5000);
 
 // ═══════════════════════════════════════════
 //           COMANDO !play
@@ -223,9 +208,8 @@ setInterval(() => {
 module.exports = {
     nome: "play",
     executar: async (sock, msg, args, remetenteId, remoteJid) => {
-        const queryRaw = args.join(' ');
+        const queryRaw = args.join(" ");
 
-        // ═══ SEM ARGUMENTO ═══
         if (!queryRaw) {
             return sock.sendMessage(remoteJid, {
                 text: `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
@@ -236,69 +220,37 @@ module.exports = {
                       `💡 *Exemplos:*\n` +
                       `  !play Billie Jean\n` +
                       `  !play MC Hariel - Lei da Vida\n` +
-                      `  !play Imagine Dragons Enemy\n\n` +
+                      `  !play Imagine Dragons Enemy\n` +
+                      `  !play https://youtu.be/dQw4w9WgXcQ\n\n` +
                       `┌─────────────────────\n` +
-                      `│ 📊 Limite: ${LIMITE_DIARIO} músicas/dia\n` +
-                      `│ ⏳ Cooldown: ${COOLDOWN_MS / 1000}s entre pedidos\n` +
-                      `│ 📀 Formato: MP3 alta qualidade\n` +
-                      `└─────────────────────`
+                      `│ ⏳ Cooldown: 15s\n` +
+                      `│ 📀 Formato: MP3 320kbps\n` +
+                      `│ 🎵 Fonte: YouTube\n` +
+                      `└─────────────────────`,
             });
         }
 
-        // ═══ COOLDOWN ═══
         if (userCooldown.has(remetenteId)) {
             const diff = Date.now() - userCooldown.get(remetenteId);
             if (diff < COOLDOWN_MS) {
                 const restante = Math.ceil((COOLDOWN_MS - diff) / 1000);
                 return sock.sendMessage(remoteJid, {
-                    text: `⏳ *Aguarde ${restante}s* para pedir outra música.`
+                    text: `⏳ *Aguarde ${restante}s* para pedir outra música.`,
                 });
             }
         }
         userCooldown.set(remetenteId, Date.now());
 
-        // ═══ LIMITE DIÁRIO ═══
-        const hoje = new Date().toDateString();
-        if (!userLimits.has(remetenteId)) {
-            userLimits.set(remetenteId, { data: hoje, count: 0 });
-        }
-        const userData = userLimits.get(remetenteId);
-        if (userData.data !== hoje) {
-            userData.data = hoje;
-            userData.count = 0;
-        }
-        if (userData.count >= LIMITE_DIARIO) {
-            return sock.sendMessage(remoteJid, {
-                text: `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
-                      `┃   🚫 *LIMITE ATINGIDO*       \n` +
-                      `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
-                      `Você já usou suas *${LIMITE_DIARIO} músicas* hoje.\n\n` +
-                      `🕐 O limite reseta à meia-noite.\n` +
-                      `Volte amanhã! 🎶`
-            });
-        }
-        userData.count++;
-
-        // ═══ SANITIZA E ADICIONA À FILA ═══
-        const query = sanitizeQuery(queryRaw);
+        const query = queryRaw.replace(/[`$\\]/g, "").slice(0, 200);
         const position = musicQueue.length + 1;
         musicQueue.push({ remoteJid, query });
 
-        const filaTexto = position === 1
-            ? `⚡ Processando agora...`
-            : `📍 Posição na fila: *${position}º*`;
-
         await sock.sendMessage(remoteJid, {
-            text: `┏━━━━━━━━━━━━━━━━━━━━━┓\n` +
-                  `┃   🔎 *BUSCANDO MÚSICA*       \n` +
-                  `┗━━━━━━━━━━━━━━━━━━━━━┛\n\n` +
-                  `🎵 _"${query}"_\n\n` +
-                  `${filaTexto}\n` +
-                  `📊 Uso hoje: ${userData.count}/${LIMITE_DIARIO}`
+            text: `🎵 *Buscando:* "${query}"\n📍 Posição: ${position}º\n⏳ Processando...`,
         });
 
         if (!isProcessingMusic) {
             processMusicQueue(sock);
         }
-    }
+    },
 };

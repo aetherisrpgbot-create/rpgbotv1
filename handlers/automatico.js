@@ -4,43 +4,7 @@
 const fs = require("fs");
 const { getTexto } = require("../utils/helpers");
 const { getBotId, isAdmin, isBotAdmin } = require("../utils/permissoes");
-
-// ============================================================
-// APAGAR FOTO NORMAL (MEMBROS)
-// ============================================================
-async function apagarFotoNormal(sock, msg, remoteJid, remetenteId) {
-    try {
-        if (!remoteJid?.endsWith('@g.us')) return false;
-        const temImagem = !!msg.message?.imageMessage;
-        if (!temImagem) return false;
-        const ehViewOnce = msg.message?.imageMessage?.viewOnce === true;
-        if (ehViewOnce) return false;
-        const ehAdmin = await isAdmin(sock, remoteJid, remetenteId);
-        if (ehAdmin) return false;
-        const nome = remetenteId.split('@')[0];
-        try {
-            await sock.sendMessage(remoteJid, {
-                delete: {
-                    remoteJid: remoteJid,
-                    fromMe: false,
-                    id: msg.key.id,
-                    participant: remetenteId
-                }
-            });
-            console.log(`🗑️ Foto de ${nome} apagada`);
-            await sock.sendMessage(remoteJid, {
-                text: `🚨 *FOTO APAGADA!* 🚨\n\n👤 @${nome}\n❌ Fotos não são permitidas para membros!`,
-                mentions: [remetenteId]
-            });
-        } catch (err) {
-            console.log('❌ Erro ao apagar:', err.message);
-        }
-        return true;
-    } catch (err) {
-        console.log('❌ ERRO:', err);
-        return false;
-    }
-}
+const { apagarFotoNormal } = require("../servicos/anti_viewonce");
 
 // ============================================================
 // DETECTAR MENSAGEM FANTASMA (INVISÍVEL)
@@ -97,34 +61,43 @@ async function fecharGrupo(sock, groupId, motivo = "Mensagem fantasma detectada"
 async function processarMensagem(sock, msg, remetenteId, remoteJid, isGroup) {
     const texto = getTexto(msg);
 
-    // ===== 1. MUTE =====
-    if (isGroup) {
-        try {
-            const { lerMutados } = require("../servicos/banco");
-            const mutados = lerMutados();
-            const numeroAtual = remetenteId.split("@")[0].split(":")[0];
-            const mutado = Object.keys(mutados).find(id => {
-                const numeroSalvo = id.split("@")[0].split(":")[0];
-                return numeroSalvo === numeroAtual;
-            });
-            if (mutado) {
-                await sock.groupParticipantsUpdate(remoteJid, [remetenteId], "remove");
-                await sock.sendMessage(remoteJid, {
-                    text: `🚫 @${numeroAtual} está mutado e foi expulso!`,
-                    mentions: [remetenteId]
-                });
-                return true;
-            }
-        } catch (err) {
-            console.log("ERRO mute:", err);
-        }
+// ===== ANTI-VIEWONCE =====
+if (isGroup) {
+    const apagou = await apagarFotoNormal(sock, msg, remoteJid, remetenteId);
+    if (apagou) {
+        await sock.sendMessage(remoteJid, {
+            text: `📷 *FOTO APAGADA!*\n\n🚫 Este grupo está com proteção anti-viewonce ativada.\n📌 Use visualização única para enviar fotos aqui.`
+        });
+        return;
     }
+}
 
-    // ===== 2. APAGAR FOTO NORMAL =====
-    if (isGroup) {
-        const apagou = await apagarFotoNormal(sock, msg, remoteJid, remetenteId);
-        if (apagou) return true;
+// ===== 1. MUTE (SÓ APAGA A MENSAGEM, NÃO EXPULSA) =====
+if (isGroup) {
+    try {
+        const { lerMutados } = require("../servicos/banco");
+        const mutados = lerMutados();
+        const numeroAtual = remetenteId.split("@")[0].split(":")[0];
+        const mutado = Object.keys(mutados).find(id => {
+            const numeroSalvo = id.split("@")[0].split(":")[0];
+            return numeroSalvo === numeroAtual;
+        });
+        if (mutado) {
+            // ===== APAGA A MENSAGEM =====
+            try {
+                await sock.sendMessage(remoteJid, {
+                    delete: msg.key
+                });
+                console.log(`🗑️ Mensagem de usuário mutado apagada: ${numeroAtual}`);
+            } catch (err) {
+                console.log("❌ Erro ao apagar mensagem:", err.message);
+            }
+            return true; // Impede que a mensagem seja processada
+        }
+    } catch (err) {
+        console.log("ERRO mute:", err);
     }
+}
 
 // ===== 1.5 MENSAGEM FANTASMA =====
 if (isGroup) {
@@ -201,33 +174,105 @@ if (isGroup) {
     }
 }
 
-
-// ===== 3. ANTI-LINK =====
+// ===== 2. ANTI-LINK 2.0 (COMPLETO) =====
 if (isGroup) {
     try {
         // ===== ADMIN NUNCA É PUNIDO =====
-        if (await isAdmin(sock, remoteJid, remetenteId)) return false;
+        if (await isAdmin(sock, remoteJid, remetenteId)) {
+            return false;
+        }
 
-        // ===== EXTRAI TEXTO =====
+        // ===== EXTRAI TEXTO DE TODO TIPO DE MENSAGEM =====
         let textoCompleto = "";
 
-        if (msg.message?.conversation) textoCompleto += msg.message.conversation;
-        if (msg.message?.extendedTextMessage?.text) textoCompleto += msg.message.extendedTextMessage.text;
-        if (msg.message?.imageMessage?.caption) textoCompleto += msg.message.imageMessage.caption;
-        if (msg.message?.videoMessage?.caption) textoCompleto += msg.message.videoMessage.caption;
-        if (msg.message?.documentMessage?.caption) textoCompleto += msg.message.documentMessage.caption;
-        if (msg.message?.buttonsResponseMessage?.selectedDisplayText) textoCompleto += msg.message.buttonsResponseMessage.selectedDisplayText;
-        if (msg.message?.listResponseMessage?.selectedDisplayText) textoCompleto += msg.message.listResponseMessage.selectedDisplayText;
-        if (msg.message?.contactMessage?.displayName) textoCompleto += msg.message.contactMessage.displayName;
-        if (msg.message?.contactMessage?.vcard) textoCompleto += msg.message.contactMessage.vcard;
-        if (msg.message?.locationMessage?.name) textoCompleto += msg.message.locationMessage.name;
-        if (msg.message?.locationMessage?.address) textoCompleto += msg.message.locationMessage.address;
-        if (msg.message?.reactionMessage?.text) textoCompleto += msg.message.reactionMessage.text;
-        if (msg.message?.protocolMessage?.message?.conversation) textoCompleto += msg.message.protocolMessage.message.conversation;
-        if (msg.message?.audioMessage?.caption) textoCompleto += msg.message.audioMessage.caption;
+        // Mensagem normal
+        if (msg.message?.conversation) {
+            textoCompleto += msg.message.conversation;
+        }
+
+        // Texto com formatação
+        if (msg.message?.extendedTextMessage?.text) {
+            textoCompleto += msg.message.extendedTextMessage.text;
+        }
+
+        // Legenda de imagem
+        if (msg.message?.imageMessage?.caption) {
+            textoCompleto += msg.message.imageMessage.caption;
+        }
+
+        // Legenda de vídeo
+        if (msg.message?.videoMessage?.caption) {
+            textoCompleto += msg.message.videoMessage.caption;
+        }
+
+        // Legenda de documento
+        if (msg.message?.documentMessage?.caption) {
+            textoCompleto += msg.message.documentMessage.caption;
+        }
+
+        // Mensagem com botão
+        if (msg.message?.buttonsResponseMessage?.selectedDisplayText) {
+            textoCompleto += msg.message.buttonsResponseMessage.selectedDisplayText;
+        }
+
+        // Mensagem de lista
+        if (msg.message?.listResponseMessage?.selectedDisplayText) {
+            textoCompleto += msg.message.listResponseMessage.selectedDisplayText;
+        }
+
+        // Nome de contato
+        if (msg.message?.contactMessage?.displayName) {
+            textoCompleto += msg.message.contactMessage.displayName;
+        }
+
+        // VCard
+        if (msg.message?.contactMessage?.vcard) {
+            textoCompleto += msg.message.contactMessage.vcard;
+        }
+
+        // Localização
+        if (msg.message?.locationMessage?.name) {
+            textoCompleto += msg.message.locationMessage.name;
+        }
+
+        if (msg.message?.locationMessage?.address) {
+            textoCompleto += msg.message.locationMessage.address;
+        }
+
+        // Reação com texto
+        if (msg.message?.reactionMessage?.text) {
+            textoCompleto += msg.message.reactionMessage.text;
+        }
+
+        // Protocolo
+        if (msg.message?.protocolMessage?.message?.conversation) {
+            textoCompleto += msg.message.protocolMessage.message.conversation;
+        }
+
+        // Mensagem de áudio com legenda
+        if (msg.message?.audioMessage?.caption) {
+            textoCompleto += msg.message.audioMessage.caption;
+        }
+
+        // Mensagem de visualização única
+        if (msg.message?.viewOnceMessage?.message?.conversation) {
+            textoCompleto += msg.message.viewOnceMessage.message.conversation;
+        }
+        if (msg.message?.viewOnceMessage?.message?.extendedTextMessage?.text) {
+            textoCompleto += msg.message.viewOnceMessage.message.extendedTextMessage.text;
+        }
+
+        // Mensagem de imagem com legenda (view once)
+        if (msg.message?.viewOnceMessage?.message?.imageMessage?.caption) {
+            textoCompleto += msg.message.viewOnceMessage.message.imageMessage.caption;
+        }
+        if (msg.message?.viewOnceMessage?.message?.videoMessage?.caption) {
+            textoCompleto += msg.message.viewOnceMessage.message.videoMessage.caption;
+        }
 
         if (!textoCompleto || textoCompleto.length < 2) return false;
 
+        // ===== LIMPA O TEXTO =====
         const textoLimpo = textoCompleto
             .toLowerCase()
             .normalize("NFD")
@@ -235,18 +280,28 @@ if (isGroup) {
             .replace(/\s+/g, " ")
             .trim();
 
-        // ===== SÓ PADRÕES DE LINK DE VERDADE =====
+        // ===== PADRÕES DE LINK (TODOS OS POSSÍVEIS) =====
         const padroes = [
+            // URLs
             /https?:\/\/[^\s]+/i,
             /www\.[a-zA-Z0-9\-]+\.[a-z]{2,}/i,
             /[a-zA-Z0-9\-]+\.[a-z]{2,}\/[^\s]*/i,
+            
+            // WhatsApp
             /chat\.whatsapp\.com/i,
             /wa\.me\//i,
             /whatsapp\.com\/channel\//i,
+            /whatsapp\.com\/c\//i,
+            
+            // Telegram
             /t\.me\//i,
             /telegram\.(org|com)\//i,
+            
+            // Discord
             /discord\.(gg|com)\//i,
             /discordapp\.com\//i,
+            
+            // Redes sociais
             /instagram\.com\//i,
             /facebook\.com\//i,
             /fb\.com\//i,
@@ -259,6 +314,8 @@ if (isGroup) {
             /linkedin\.com\//i,
             /pinterest\.com\//i,
             /snapchat\.com\//i,
+            
+            // Encurtadores
             /bit\.ly\//i,
             /tinyurl\.com\//i,
             /cutt\.ly\//i,
@@ -271,24 +328,58 @@ if (isGroup) {
             /is\.gd\//i,
             /buff\.ly\//i,
             /short\.link\//i,
-            /signal\.org\//i,
-            /element\.io\//i,
-            /matrix\.org\//i,
-            /github\.com\//i,
-            /gitlab\.com\//i,
-            /patreon\.com\//i,
+            /shorte\.st\//i,
+            /v.gd\//i,
+            /tiny\.cc\//i,
+            /clck\.ru\//i,
+            /u\.to\//i,
+            
+            // IP
+            /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/i,
+            
+            // Links de arquivo
+            /\.(pdf|doc|docx|xls|xlsx|ppt|pptx|zip|rar|exe|apk|torrent|mp3|mp4|avi|mkv)[\s\/]?/i,
+            
+            // Links de imagem
+            /\.(jpg|jpeg|png|gif|bmp|svg|webp)[\s\/]?/i,
+            
+            // Links de código
+            /github\.com\/[a-zA-Z0-9\-]+\/[a-zA-Z0-9\-]+/i,
+            /gitlab\.com\/[a-zA-Z0-9\-]+\/[a-zA-Z0-9\-]+/i,
+            
+            // Outros
+            /docs\.google\.com\//i,
+            /drive\.google\.com\//i,
+            /dropbox\.com\//i,
+            /onedrive\.live\.com\//i,
             /paypal\.me\//i,
             /pix\.[a-z]{2,}\//i,
-            /[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/i
+            /mercadoenvios\.com\//i,
+            /nubank\.com\.br\//i
         ];
 
         const temLink = padroes.some(p => p.test(textoLimpo));
-        const conteudoProibido = temLink || msg.message?.groupInviteMessage || msg.message?.paymentInviteMessage;
+
+        // ===== CONTEÚDO PROIBIDO (TODOS OS TIPOS) =====
+        const conteudoProibido = temLink ||
+            msg.message?.groupInviteMessage ||
+            msg.message?.paymentInviteMessage ||
+            msg.message?.orderMessage ||
+            msg.message?.liveLocationMessage ||
+            msg.message?.pollCreationMessage ||
+            msg.message?.pollUpdateMessage ||
+            msg.message?.reactionMessage?.text ||
+            msg.message?.listMessage ||
+            msg.message?.buttonsMessage ||
+            msg.message?.templateMessage ||
+            msg.message?.productMessage ||
+            msg.message?.contactMessage ||
+            msg.message?.locationMessage;
 
         if (conteudoProibido) {
             const nome = remetenteId.split('@')[0];
 
-            // ===== TENTA APAGAR A MENSAGEM =====
+            // ===== TENTA APAGAR =====
             try {
                 if (msg.key) {
                     await sock.sendMessage(remoteJid, {
@@ -299,32 +390,46 @@ if (isGroup) {
                             participant: remetenteId
                         }
                     });
-                    console.log(`🗑️ Mensagem de link apagada de @${nome}`);
+                    console.log(`🗑️ Mensagem apagada de @${nome}`);
                 }
             } catch (err) {
-                console.log("⚠️ Não foi possível apagar a mensagem:", err.message);
+                console.log("⚠️ Erro ao apagar:", err.message);
             }
 
-            // ===== TENTA REMOVER O USUÁRIO =====
+            // ===== TENTA REMOVER =====
             try {
                 await sock.groupParticipantsUpdate(remoteJid, [remetenteId], "remove");
+
                 await sock.sendMessage(remoteJid, {
-                    text: `🚨 *ANTI-LINK* 🚨\n\n👤 @${nome}\n❌ Link detectado!\n🗑️ Mensagem apagada!\n🚪 Usuário removido!`,
+                    text: `🚨 *ANTI-LINK 2.0* 🚨\n\n` +
+                          `👤 @${nome}\n\n` +
+                          `❌ Link ou conteúdo proibido detectado!\n` +
+                          `🗑️ Mensagem apagada!\n` +
+                          `🚪 Usuário removido!\n\n` +
+                          `📌 Motivo: ${temLink ? 'Link suspeito' : 'Conteúdo proibido'}`,
                     mentions: [remetenteId]
                 });
+
             } catch (err) {
                 console.log("ERRO anti-link:", err);
                 await sock.sendMessage(remoteJid, {
-                    text: `⚠️ *ANTI-LINK* ⚠️\n\n👤 @${nome}\n❌ Link detectado, mas NÃO CONSEGUI REMOVER!\n🗑️ Mensagem apagada!`,
+                    text: `⚠️ *ANTI-LINK 2.0* ⚠️\n\n` +
+                          `👤 @${nome}\n\n` +
+                          `❌ Link detectado, mas NÃO CONSEGUI REMOVER!\n` +
+                          `🗑️ Mensagem apagada!\n\n` +
+                          `🛡️ Verifique se sou administrador do grupo.`,
                     mentions: [remetenteId]
                 });
             }
+
             return true;
         }
+
     } catch (err) {
         console.log("ERRO anti-link:", err);
     }
 }
+
 
     // ===== 4. XP POR MENSAGEM =====
     if (!msg.key.fromMe && texto && !texto.startsWith("!")) {
@@ -484,6 +589,5 @@ function setupAutomatico(sock) {
 // ============================================================
 module.exports = {
     setupAutomatico,
-    processarMensagem,
-    apagarFotoNormal
+    processarMensagem
 };

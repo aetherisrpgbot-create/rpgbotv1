@@ -1,0 +1,3472 @@
+{
+  "7211669573681@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-18T01:20:51.551Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:33:06.834Z",
+        "comando": "resposta",
+        "args": [
+          "baleia",
+          "azul"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:40:57.706Z",
+        "comando": "resposta",
+        "args": [
+          "elias"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T15:08:25.820Z",
+        "comando": "ranking",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T20:56:52.032Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-18T21:59:12.016Z",
+        "comando": "play",
+        "args": [
+          "CUIDA",
+          "CATRAIA"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:00:10.439Z",
+        "comando": "play",
+        "args": [
+          "CUIDA",
+          "CATRAIA"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:03:25.488Z",
+        "comando": "play",
+        "args": [
+          "CUIDA",
+          "CATRAIA"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:35:59.898Z",
+        "comando": "play",
+        "args": [
+          "CUIDA",
+          "CATRAIA"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:36:57.809Z",
+        "comando": "converterbranco",
+        "args": [
+          "CUUIDA",
+          "CATRAIA!!!"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:37:13.208Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:38:21.232Z",
+        "comando": "baixar",
+        "args": [
+          "vídeo",
+          "https://youtu.be/MZzl8qYF_qY?is=My-fcnq6oSTDcunI"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T22:55:55.144Z",
+        "comando": "baixar",
+        "args": [
+          "vídeo",
+          "https://youtu.be/MZzl8qYF_qY?is=My-fcnq6oSTDcunI"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T01:57:49.953Z",
+        "comando": "ranking",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:58:39.882Z",
+        "comando": "testepython",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:59:31.199Z",
+        "comando": "testepython",
+        "args": [
+          "olá",
+          "bot"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:02:27.850Z",
+        "comando": "testepython",
+        "args": [
+          "iae"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:10:45.424Z",
+        "comando": "iapropria",
+        "args": [
+          "olá"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:11:45.640Z",
+        "comando": "iapropria",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:12:10.992Z",
+        "comando": "oraculo",
+        "args": [
+          "iae",
+          "oraculo"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:13:39.679Z",
+        "comando": "iapropria",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:14:05.113Z",
+        "comando": "iapropria",
+        "args": [
+          "me",
+          "ajuda",
+          "com",
+          "os",
+          "comandos?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:15:22.257Z",
+        "comando": "iapropria",
+        "args": [
+          "explique",
+          "o",
+          "perfil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:16:17.235Z",
+        "comando": "iapropria",
+        "args": [
+          "oque",
+          "é",
+          "o",
+          "perfil?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:16:53.931Z",
+        "comando": "iapropria",
+        "args": [
+          "explique",
+          "o",
+          "comando",
+          "!perfil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:24:52.883Z",
+        "comando": "iapropria",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:29:52.150Z",
+        "comando": "iapropria",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:30:58.116Z",
+        "comando": "iapropria",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "criador",
+          "do",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:36:08.845Z",
+        "comando": "iapropria",
+        "args": [
+          "olá"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:38:13.669Z",
+        "comando": "iapropria",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:38:37.131Z",
+        "comando": "aprender",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot",
+          "foi",
+          "Widnes",
+          "Santos"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:39:07.299Z",
+        "comando": "aprender",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?",
+          "|",
+          "Widnes",
+          "Santos"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:39:17.790Z",
+        "comando": "iapropria",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:44:37.781Z",
+        "comando": "testeia",
+        "args": [
+          "olá"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:44:51.039Z",
+        "comando": "testeia",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:45:37.169Z",
+        "comando": "testeia",
+        "args": [
+          "como",
+          "usar",
+          "os",
+          "comandos?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:46:40.571Z",
+        "comando": "aprender",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?",
+          "|",
+          "Foi",
+          "Widnes",
+          "Santos"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:46:50.929Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:47:06.900Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:48:10.512Z",
+        "comando": "testeia",
+        "args": [
+          "Olá,",
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:51:32.768Z",
+        "comando": "testeia",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:51:54.220Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:52:16.454Z",
+        "comando": "testeia",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:52:40.571Z",
+        "comando": "testeia",
+        "args": [
+          "você",
+          "sabe",
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:52:52.771Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "criou",
+          "o",
+          "bot?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:53:07.411Z",
+        "comando": "testeia",
+        "args": [
+          "quais",
+          "os",
+          "comandos?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:53:51.047Z",
+        "comando": "aprender",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?",
+          "|",
+          "Andrade",
+          "o",
+          "gostoso"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:54:09.526Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T14:55:06.557Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:55:39.817Z",
+        "comando": "aprender",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?",
+          "|",
+          "Andrade",
+          "o",
+          "gostoso"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:55:56.222Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:59:16.104Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:59:38.004Z",
+        "comando": "aprender",
+        "args": [
+          "Quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?",
+          "|",
+          "Andrade",
+          "o",
+          "gostoso"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T14:59:53.997Z",
+        "comando": "testeia",
+        "args": [
+          "Quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:03:30.393Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:05:14.117Z",
+        "comando": "aprender",
+        "args": [
+          "Quem",
+          "a",
+          "Grazi",
+          "ama?",
+          "|",
+          "O",
+          "cachorro",
+          "do",
+          "Pierry"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:05:31.591Z",
+        "comando": "testeia",
+        "args": [
+          "quem",
+          "a",
+          "Grazi",
+          "ama?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:15:50.732Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "o",
+          "mais",
+          "Nonchalant?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:16:08.970Z",
+        "comando": "esquecer",
+        "args": [
+          "quem",
+          "a",
+          "Grazi",
+          "ama?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:21:33.917Z",
+        "comando": "esquecer",
+        "args": [
+          "quem",
+          "a",
+          "Grazi",
+          "ama?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:22:07.609Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "foi",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:22:34.329Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "foi",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:22:59.233Z",
+        "comando": "ia",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:23:10.985Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "a",
+          "Grazi",
+          "ama?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:25:19.244Z",
+        "comando": "ia",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:25:37.856Z",
+        "comando": "ia",
+        "args": [
+          "pesquise",
+          "quem",
+          "é",
+          "Elon",
+          "Musk"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:26:16.896Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "foi",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:26:34.744Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "criou",
+          "você?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:27:10.156Z",
+        "comando": "aprender",
+        "args": [
+          "Quem",
+          "é",
+          "Elon",
+          "Musk?",
+          "|",
+          "Criador",
+          "da",
+          "Tesla"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:27:25.599Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "Elon",
+          "Musk?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:28:03.779Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "Elon",
+          "Musk?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-19T15:33:09.590Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "foi",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:33:29.438Z",
+        "comando": "ia",
+        "args": [
+          "pesquise",
+          "sobre",
+          "a",
+          "segunda",
+          "guerra",
+          "mundial"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:34:00.496Z",
+        "comando": "ia",
+        "args": [
+          "oq",
+          "foi",
+          "a",
+          "segunda",
+          "guerra",
+          "mundial?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:35:02.881Z",
+        "comando": "ia",
+        "args": [
+          "conta",
+          "uma",
+          "piada"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:37:38.014Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "foi",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:42:17.525Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "Cristóvão",
+          "Colombo?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:45:09.948Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "esse",
+          "tal",
+          "de",
+          "Elon",
+          "Musk?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:47:10.006Z",
+        "comando": "ia",
+        "args": [
+          "pesquise",
+          "sobre",
+          "a",
+          "reforma",
+          "protestante"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:49:12.939Z",
+        "comando": "ia",
+        "args": [
+          "explique",
+          "a",
+          "segunda",
+          "guerra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:54:32.784Z",
+        "comando": "ia",
+        "args": [
+          "explique",
+          "a",
+          "segunda",
+          "guerra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:55:55.444Z",
+        "comando": "ia",
+        "args": [
+          "pesquise",
+          "o",
+          "paradoxo",
+          "do",
+          "macaco"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T15:56:37.550Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "Ana",
+          "Maria",
+          "Braga?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:00:45.150Z",
+        "comando": "ia",
+        "args": [
+          "quem",
+          "é",
+          "Dom",
+          "Calvino?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:03:49.815Z",
+        "comando": "ia",
+        "args": [
+          "explique",
+          "resumidamente",
+          "quem",
+          "foi",
+          "Sócrates"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:05:07.408Z",
+        "comando": "ia",
+        "args": [
+          "tudo",
+          "bem?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:05:23.044Z",
+        "comando": "ia",
+        "args": [
+          "queria",
+          "um",
+          "docinho"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:06:15.985Z",
+        "comando": "ia",
+        "args": [
+          "quais",
+          "doces",
+          "vc",
+          "sabe",
+          "fazer?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:12:11.078Z",
+        "comando": "ia",
+        "args": [
+          "quais",
+          "os",
+          "melhores",
+          "doces",
+          "na",
+          "sua",
+          "opinião?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:15:31.307Z",
+        "comando": "ia",
+        "args": [
+          "qual",
+          "meu",
+          "nome?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:17:47.599Z",
+        "comando": "ia",
+        "args": [
+          "qual",
+          "meu",
+          "nome?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:18:29.875Z",
+        "comando": "ia",
+        "args": [
+          "se",
+          "eu",
+          "te",
+          "disser",
+          "uma",
+          "frase,",
+          "vc",
+          "vai",
+          "lembrar?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:18:57.472Z",
+        "comando": "ia",
+        "args": [
+          "a",
+          "frase",
+          "é",
+          "Widnes",
+          "é",
+          "lindo"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T16:19:16.019Z",
+        "comando": "ia",
+        "args": [
+          "qual",
+          "a",
+          "frase?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:34:38.642Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:34:58.107Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:43:33.358Z",
+        "comando": "foto",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:43:49.013Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:44:38.355Z",
+        "comando": "play",
+        "args": [
+          "One",
+          "Time",
+          "-",
+          "Justin",
+          "Bieber"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T19:48:30.023Z",
+        "comando": "oraculo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      }
+    ]
+  },
+  "209092345864403@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-04T22:02:37.058Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-04T22:02:55.033Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-05T19:13:16.502Z",
+        "comando": "play",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T02:35:40.299Z",
+        "comando": "play",
+        "args": [
+          "contramão",
+          "Hungria"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T02:48:47.692Z",
+        "comando": "play",
+        "args": [
+          "ninguém",
+          "vive",
+          "de",
+          "fama"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T14:48:03.107Z",
+        "comando": "revelar",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T14:48:11.062Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T14:54:41.864Z",
+        "comando": "perfil",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T14:55:37.331Z",
+        "comando": "treino",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:41:06.949Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:41:14.135Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:41:41.954Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:41:51.612Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:42:29.390Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:42:38.691Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:46:15.205Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T15:46:28.021Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T17:04:55.474Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T17:05:01.702Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T18:01:01.246Z",
+        "comando": "foto",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-08T00:08:12.360Z",
+        "comando": "play",
+        "args": [
+          "whisky",
+          "importado"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T16:52:49.946Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T16:52:57.158Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T16:53:04.392Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T16:56:10.000Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T16:56:10.225Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T17:01:42.200Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T12:57:55.725Z",
+        "comando": "rename",
+        "args": [
+          "ISSO",
+          "É",
+          "UMA",
+          "CAMISINHA"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T12:57:56.706Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-11T20:35:30.489Z",
+        "comando": "play",
+        "args": [
+          "eu",
+          "vou",
+          "te",
+          "assumir"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-11T21:03:20.901Z",
+        "comando": "play",
+        "args": [
+          "fora",
+          "do",
+          "comum"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T01:54:21.531Z",
+        "comando": "play",
+        "args": [
+          "cinco",
+          "estrelas",
+          "(boteco",
+          "de",
+          "cadeira",
+          "amarela)"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:55:22.230Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:57:29.189Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:57:49.222Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:58:09.548Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:58:17.844Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:58:30.752Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T17:08:54.262Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T17:09:16.929Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T17:09:28.257Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T17:10:50.916Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T21:32:58.134Z",
+        "comando": "rename",
+        "args": [
+          "NEGRO1"
+        ],
+        "grupo": "120363351564577845@g.us"
+      }
+    ]
+  },
+  "79792389017845@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-04T22:11:14.931Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-05T19:19:47.338Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-05T22:15:44.935Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-05T22:16:10.370Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE",
+          "TA",
+          "TOTOSO?"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T15:22:35.494Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T15:23:04.962Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T15:54:52.625Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T15:55:11.832Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T15:59:40.685Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T16:00:02.430Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE",
+          "SINCERO"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T22:49:45.080Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T22:50:00.398Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T22:51:03.515Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-06T22:51:14.093Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T21:51:28.491Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T21:54:33.060Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T23:26:30.541Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-07T23:26:39.144Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T00:51:27.663Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T00:51:48.949Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T01:23:41.761Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T01:23:49.551Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T21:39:19.774Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T21:39:37.273Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T21:40:08.379Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T21:40:20.916Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T22:22:22.936Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-09T22:22:30.256Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T14:59:30.045Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T14:59:49.922Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T15:00:28.419Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T15:00:35.575Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T15:01:21.763Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-10T15:01:33.021Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:28:00.894Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:28:11.022Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:28:36.395Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:28:52.873Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:29:10.999Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:16:37.590Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE",
+          "PIKA",
+          "GROSSA"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:25:49.847Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:26:33.420Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:35:18.662Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:38:01.577Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-14T15:39:05.622Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE",
+          "PIKA",
+          "GROSSA"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-15T00:39:49.461Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-15T00:40:07.551Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-15T00:40:51.277Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-15T00:41:00.767Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:39:41.902Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-16T16:39:49.735Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-17T00:06:31.040Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-17T00:06:46.449Z",
+        "comando": "rename",
+        "args": [
+          "ANDRADE"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-17T04:13:05.037Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-17T22:58:31.419Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-17T22:59:12.308Z",
+        "comando": "rename",
+        "args": [
+          "Badalo",
+          "nacionalista"
+        ],
+        "grupo": "120363351564577845@g.us"
+      }
+    ]
+  },
+  "145394004701415@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-09T01:53:58.649Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:54:37.867Z",
+        "comando": "eu",
+        "args": [
+          "vou",
+          "ali"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:55:32.600Z",
+        "comando": "marcar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:56:12.251Z",
+        "comando": "totag",
+        "args": [
+          "vai",
+          "comer",
+          "pão"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:56:19.803Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:56:39.549Z",
+        "comando": "diversão",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:57:02.431Z",
+        "comando": "menudiv",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:57:24.320Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:58:18.132Z",
+        "comando": "resposta",
+        "args": [
+          "canada"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:58:37.274Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:58:56.033Z",
+        "comando": "resposta",
+        "args": [
+          "dinossauro"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:59:20.370Z",
+        "comando": "resposta",
+        "args": [
+          "dragao",
+          "komodo"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:59:31.852Z",
+        "comando": "responder",
+        "args": [
+          "🤷🏽‍♂️"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:59:36.871Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T01:59:53.303Z",
+        "comando": "responder",
+        "args": [
+          "8"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:00:15.254Z",
+        "comando": "resposta",
+        "args": [
+          "4"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:00:27.536Z",
+        "comando": "resposta",
+        "args": [
+          "2"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:00:40.507Z",
+        "comando": "resposta",
+        "args": [
+          "6"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:00:58.395Z",
+        "comando": "resposta",
+        "args": [
+          "1"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:01:09.631Z",
+        "comando": "resposta",
+        "args": [
+          "3"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:01:47.935Z",
+        "comando": "resposta",
+        "args": [
+          "5"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:02:01.877Z",
+        "comando": "salve",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:02:09.514Z",
+        "comando": "saldo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:02:21.046Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:02:58.096Z",
+        "comando": "resposta",
+        "args": [
+          "Brasil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:03:13.800Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:03:33.020Z",
+        "comando": "8ball",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:04:03.402Z",
+        "comando": "8ball",
+        "args": [
+          "alguém",
+          "tem",
+          "inveja",
+          "de",
+          "mim?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:04:17.585Z",
+        "comando": "8ball",
+        "args": [
+          "alguém",
+          "me",
+          "ama?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:04:39.262Z",
+        "comando": "8ball",
+        "args": [
+          "widnes",
+          "tá",
+          "mentindo",
+          "pra",
+          "mim?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:04:58.131Z",
+        "comando": "8ball",
+        "args": [
+          "widnes",
+          "finge",
+          "me",
+          "achar",
+          "uma",
+          "menina",
+          "legal?"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:05:31.497Z",
+        "comando": "d",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:06:18.037Z",
+        "comando": "dado",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:06:32.820Z",
+        "comando": "dado",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:08:10.603Z",
+        "comando": "converter",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:08:44.473Z",
+        "comando": "converter",
+        "args": [
+          "azul"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:09:07.912Z",
+        "comando": "converter",
+        "args": [
+          "preto"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:09:34.696Z",
+        "comando": "converter",
+        "args": [
+          "preto"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:09:57.894Z",
+        "comando": "converter",
+        "args": [
+          "preto"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:11:07.866Z",
+        "comando": "converterbranco",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:12:02.896Z",
+        "comando": "ranking",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-09T02:13:59.031Z",
+        "comando": "rankrico",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      }
+    ]
+  },
+  "247605669941311@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-12T23:56:49.810Z",
+        "comando": "play",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-12T23:56:59.507Z",
+        "comando": "play",
+        "args": [
+          "my",
+          "tune",
+          "cool",
+          "note"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-13T16:05:49.400Z",
+        "comando": "",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-13T16:05:56.972Z",
+        "comando": "play",
+        "args": [
+          "freedawg"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-13T16:06:41.499Z",
+        "comando": "sr",
+        "args": [
+          "freedawg",
+          "youngboy"
+        ],
+        "grupo": "120363351564577845@g.us"
+      },
+      {
+        "data": "2026-08-13T16:06:53.541Z",
+        "comando": "play",
+        "args": [
+          "freedawg",
+          "nba"
+        ],
+        "grupo": "120363351564577845@g.us"
+      }
+    ]
+  },
+  "66276093374557@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-13T17:32:33.921Z",
+        "comando": "ranking",
+        "args": [],
+        "grupo": "120363351564577845@g.us"
+      }
+    ]
+  },
+  "78164713853116@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-17T22:17:49.594Z",
+        "comando": "ping",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      }
+    ]
+  },
+  "12747664322584@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-17T22:21:06.703Z",
+        "comando": "ping",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:21:18.368Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:21:43.468Z",
+        "comando": "menudiv",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:21:57.492Z",
+        "comando": "dado",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:22:14.391Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:22:33.985Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:22:51.987Z",
+        "comando": "resposta",
+        "args": [
+          "Brasil"
+        ],
+        "grupo": "120363412436131370@g.us"
+      },
+      {
+        "data": "2026-08-17T22:23:01.731Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363412436131370@g.us"
+      }
+    ]
+  },
+  "219138073084159@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-19T09:51:18.359Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:24.202Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:37.301Z",
+        "comando": "usarskill",
+        "args": [
+          "tiro_preciso"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:44.683Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:46.931Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:50.411Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:54.603Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:51:56.958Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:52:03.011Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:52:07.312Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:52:09.175Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T09:53:15.726Z",
+        "comando": "perfil",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T10:00:53.050Z",
+        "comando": "perfil",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T10:30:02.049Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:22:19.267Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:22:26.709Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:22:31.127Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:22:36.948Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:01.262Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:09.045Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:14.262Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:18.564Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:29.012Z",
+        "comando": "usar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:40.483Z",
+        "comando": "comprar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:46.009Z",
+        "comando": "comprar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:49.385Z",
+        "comando": "comprar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:56.964Z",
+        "comando": "comprar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:27:59.323Z",
+        "comando": "comprar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:06.384Z",
+        "comando": "usar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:10.278Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:22.463Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:41.305Z",
+        "comando": "usar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:43.963Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:28:47.960Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:29:43.360Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:29:53.913Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:29:58.517Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:30:05.007Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:30:11.831Z",
+        "comando": "perfil",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:31:03.136Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:32:03.471Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:32:15.016Z",
+        "comando": "usar",
+        "args": [
+          "pocao_vida"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:32:51.597Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:34:50.073Z",
+        "comando": "usar",
+        "args": [
+          "pocao_grande"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:35:33.889Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:35:40.647Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:07.371Z",
+        "comando": "dungeon",
+        "args": [
+          "listar"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:21.099Z",
+        "comando": "dungeon",
+        "args": [
+          "entrar",
+          "catacumbas_de_vhalor"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:31.944Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:39.428Z",
+        "comando": "honra",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:47.002Z",
+        "comando": "responder",
+        "args": [
+          "honra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:36:58.684Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:37:01.743Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:37:10.246Z",
+        "comando": "responder",
+        "args": [
+          "sombra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:18.245Z",
+        "comando": "falar",
+        "args": [
+          "sou",
+          "amigo,",
+          "não",
+          "precisamos",
+          "lutar."
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:27.405Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:32.169Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:33.817Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:44.966Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:38:50.626Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:39:13.236Z",
+        "comando": "dungeon",
+        "args": [
+          "status"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:39:24.502Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:39:41.094Z",
+        "comando": "dgolpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:39:55.936Z",
+        "comando": "dcombo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:40:06.274Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:40:23.794Z",
+        "comando": "datacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:40:40.371Z",
+        "comando": "dungeon",
+        "args": [
+          "status"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:40:50.927Z",
+        "comando": "inventario",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:41:12.742Z",
+        "comando": "usar",
+        "args": [
+          "fragmento_da_honra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:41:22.569Z",
+        "comando": "equipar",
+        "args": [
+          "fragmento_da_honra"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:41:53.180Z",
+        "comando": "perfil",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:42:38.175Z",
+        "comando": "retirar",
+        "args": [
+          "9"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:42:46.017Z",
+        "comando": "sacar",
+        "args": [
+          "9"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:16.799Z",
+        "comando": "treinar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:21.143Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:40.649Z",
+        "comando": "rendição",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:46.902Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:52.836Z",
+        "comando": "rendicao",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:43:57.393Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:02.600Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:13.161Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:15.854Z",
+        "comando": "atacr",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:18.792Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:27.946Z",
+        "comando": "saldo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:47.580Z",
+        "comando": "depositar",
+        "args": [
+          "7130"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:44:57.920Z",
+        "comando": "ranck",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:45:24.035Z",
+        "comando": "menurpg",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:45:32.277Z",
+        "comando": "ranking",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:46:00.328Z",
+        "comando": "classe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:46:10.715Z",
+        "comando": "ranking",
+        "args": [
+          "saldo"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T13:46:34.889Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T17:48:47.297Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T18:51:41.910Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:41:11.798Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:41:45.491Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:41:59.005Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:42:06.871Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:42:24.821Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:42:31.993Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-19T21:42:40.161Z",
+        "comando": "atacar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      }
+    ]
+  },
+  "16282858578121@lid": {
+    "nome": "Desconhecido",
+    "historico": [
+      {
+        "data": "2026-08-18T01:01:05.324Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:16.531Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:24.038Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:36.337Z",
+        "comando": "trabalhat",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:44.514Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:48.879Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:01:56.641Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:02:15.687Z",
+        "comando": "saldo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:02:27.318Z",
+        "comando": "manu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:02:32.810Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:03:01.748Z",
+        "comando": "menueco",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:03:43.078Z",
+        "comando": "depositar",
+        "args": [
+          "1872"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:05:43.314Z",
+        "comando": "seguranca",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:05:59.271Z",
+        "comando": "figurinha",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:06:15.870Z",
+        "comando": "menueco",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:06:26.256Z",
+        "comando": "sacar",
+        "args": [
+          "100"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:06:33.699Z",
+        "comando": "seguranca",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:08:45.179Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:09:26.657Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:09:56.961Z",
+        "comando": "roubar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:10:51.889Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:12:14.922Z",
+        "comando": "roubar",
+        "args": [
+          "@219138073084159"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:13:31.907Z",
+        "comando": "menu",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:13:48.024Z",
+        "comando": "menurpg",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:14:49.887Z",
+        "comando": "converter",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:15:07.910Z",
+        "comando": "missao",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:15:39.390Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:15:54.558Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:16:01.574Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:16:08.581Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:16:20.462Z",
+        "comando": "treino",
+        "args": [
+          "médio"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:16:34.435Z",
+        "comando": "treino",
+        "args": [
+          "normal"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:17:06.222Z",
+        "comando": "fugir",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:17:32.084Z",
+        "comando": "rendicao",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:17:50.213Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:17:57.786Z",
+        "comando": "combo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:18:09.068Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:20:06.735Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:20:20.431Z",
+        "comando": "acordar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:20:26.994Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:20:58.359Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:21:26.457Z",
+        "comando": "resposta",
+        "args": [
+          "Davi"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:22:29.406Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:22:48.780Z",
+        "comando": "resposta",
+        "args": [
+          "quando",
+          "minha",
+          "vó",
+          "era",
+          "nazista"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:22:56.773Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:24:30.782Z",
+        "comando": "resposta",
+        "args": [
+          "Albert",
+          "Einstein"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:28:07.354Z",
+        "comando": "resposta",
+        "args": [
+          "beethoven"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:28:42.231Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:29:45.593Z",
+        "comando": "resposta",
+        "args": [
+          "genesis"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:32:14.345Z",
+        "comando": "resposta",
+        "args": [
+          "girrafa"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:32:49.663Z",
+        "comando": "resposta",
+        "args": [
+          "elefante"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:34:28.281Z",
+        "comando": "resposta",
+        "args": [
+          "mercurio"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:34:50.732Z",
+        "comando": "resposta",
+        "args": [
+          "salmos"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:36:13.078Z",
+        "comando": "resposta",
+        "args": [
+          "gogh"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T01:36:22.505Z",
+        "comando": "resposta",
+        "args": [
+          "van",
+          "gogh"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T09:36:04.025Z",
+        "comando": "ping",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T09:36:04.276Z",
+        "comando": "acordar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:19:49.137Z",
+        "comando": "acordar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:19:59.273Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:20:07.250Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:20:17.545Z",
+        "comando": "saldo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:20:33.254Z",
+        "comando": "depositar",
+        "args": [
+          "1311"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:20:44.875Z",
+        "comando": "treino",
+        "args": [
+          "facil"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:21:02.763Z",
+        "comando": "golpe",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:21:16.087Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:21:29.099Z",
+        "comando": "resposta",
+        "args": [
+          "coração"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:21:40.269Z",
+        "comando": "resposta",
+        "args": [
+          "coracao"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:21:50.133Z",
+        "comando": "pergunta",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T18:26:33.065Z",
+        "comando": "resposta",
+        "args": [
+          "marte"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T20:53:30.292Z",
+        "comando": "rename",
+        "args": [
+          "my",
+          "name"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:00:46.534Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:00:55.145Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:00:58.841Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:01:03.104Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:01:07.698Z",
+        "comando": "trabalhar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:01:24.232Z",
+        "comando": "saldo",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:01:42.867Z",
+        "comando": "depositar",
+        "args": [
+          "1065"
+        ],
+        "grupo": "120363427739738043@g.us"
+      },
+      {
+        "data": "2026-08-18T21:01:55.785Z",
+        "comando": "descansar",
+        "args": [],
+        "grupo": "120363427739738043@g.us"
+      }
+    ]
+  }
+}

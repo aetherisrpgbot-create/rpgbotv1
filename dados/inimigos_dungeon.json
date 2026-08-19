@@ -1,0 +1,62 @@
+{
+  "sombra_do_ancestral": {
+    "id": "sombra_do_ancestral",
+    "nome": "👻 Sombra do Ancestral",
+    "nivel": 2,
+    "vida": 40,
+    "poder": 12,
+    "defesa": 4,
+    "xp": 30,
+    "dinheiro": 20,
+    "descricao": "Uma silhueta escura que se move como fumaça. O eco de um guerreiro morto.",
+    "dificuldade": "facil"
+  },
+  "arqueiro_espectral": {
+    "id": "arqueiro_espectral",
+    "nome": "🏹 Arqueiro Espectral",
+    "nivel": 3,
+    "vida": 35,
+    "poder": 16,
+    "defesa": 2,
+    "xp": 40,
+    "dinheiro": 25,
+    "descricao": "Um arqueiro fantasmagórico que atira flechas de sombra.",
+    "dificuldade": "medio"
+  },
+  "lobo_sombrio": {
+    "id": "lobo_sombrio",
+    "nome": "🐺 Lobo Sombrio",
+    "nivel": 3,
+    "vida": 50,
+    "poder": 14,
+    "defesa": 6,
+    "xp": 45,
+    "dinheiro": 30,
+    "descricao": "Um lobo de olhos vermelhos que parece feito de fumaça.",
+    "dificuldade": "medio"
+  },
+  "guerreiro_ancestral": {
+    "id": "guerreiro_ancestral",
+    "nome": "⚔️ Guerreiro Ancestral",
+    "nivel": 4,
+    "vida": 70,
+    "poder": 18,
+    "defesa": 10,
+    "xp": 60,
+    "dinheiro": 40,
+    "descricao": "Um cavaleiro de armadura rachada, movendo-se como um autômato.",
+    "dificuldade": "dificil"
+  },
+  "sir_aldren": {
+    "id": "sir_aldren",
+    "nome": "👑 Sir Aldren, o Guardião Esquecido",
+    "nivel": 5,
+    "vida": 150,
+    "poder": 25,
+    "defesa": 14,
+    "xp": 200,
+    "dinheiro": 150,
+    "descricao": "O último comandante de Vhalor, corrompido pela escuridão.",
+    "dificuldade": "chefe"
+  }
+}

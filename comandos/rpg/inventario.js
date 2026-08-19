@@ -1,31 +1,37 @@
-// !inventario
-const ITENS = require("../../dados/itens");
+// !inventario - MOSTRA O INVENTÁRIO
 const { getJogador } = require("../../servicos/jogador");
 
 module.exports = {
     nome: "inventario",
     executar: async (sock, msg, args, remetenteId, remoteJid) => {
-        const jogador = getJogador(remetenteId, msg.pushName || "Usuário");
+        const jogador = getJogador(remetenteId, msg.pushName || "Aventureiro");
         const inventario = jogador.inventario || {};
 
         if (Object.keys(inventario).length === 0) {
             return sock.sendMessage(remoteJid, {
-                text: `🎒 *INVENTÁRIO DE ${jogador.nome.toUpperCase()}*\n\nSeu inventário está vazio.`
+                text: `╭━━━ 📦 *INVENTÁRIO VAZIO* ━━━╮\n\n` +
+                      `❌ Você não tem nenhum item.\n` +
+                      `💡 Use !loja para comprar ou faça dungeons!\n\n` +
+                      `╰━━━━━━━━━━━━━━━━━━━━╯`
             });
         }
 
-        let texto = `🎒 *INVENTÁRIO DE ${jogador.nome.toUpperCase()}*\n\n`;
+        let texto = `╭━━━ 📦 *INVENTÁRIO* ━━━╮\n\n`;
 
-        for (const [id, qtd] of Object.entries(inventario)) {
-            const item = ITENS[id];
-            if (!item) continue;
-            texto += `📦 ${item.nome} x${qtd}\n`;
-            texto += `   🆔 ${id}\n\n`;
+        for (const [id, quantidade] of Object.entries(inventario)) {
+            // Busca o nome do item
+            let nome = id;
+            try {
+                const ITENS = require("../../dados/itens");
+                if (ITENS[id]) {
+                    nome = ITENS[id].nome || id;
+                }
+            } catch (e) {}
+            
+            texto += `   ${nome} x${quantidade}\n`;
         }
 
-        texto += `━━━━━━━━━━━━━━━━━━━━━━\n`;
-        texto += `💡 Use: !equipar <id> | !usar <id>`;
-
+        texto += `\n╰━━━━━━━━━━━━━━━━━━━━╯`;
         await sock.sendMessage(remoteJid, { text: texto });
     }
 };

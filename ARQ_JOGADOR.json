@@ -1,15 +1,15 @@
 {
   "12747664322584@lid": {
     "nome": "Luydja",
-    "xp": 80,
+    "xp": 95,
     "nivel": 1,
-    "stamina": 80,
+    "stamina": 100,
     "maxStamina": 100,
-    "fatigue": 10,
-    "saldo": 111,
+    "fatigue": 0,
+    "saldo": 211,
     "banco": 0,
     "lastRest": 1781121894713,
-    "restEnd": 1781125308541,
+    "restEnd": 0,
     "classe": "guerreiro",
     "missoes": {
       "ativas": [],
@@ -559,37 +559,49 @@
       ],
       "totalCompletas": 0,
       "ultimoReset": 1782506683546
-    }
+    },
+    "vidaMax": 100,
+    "vida": 100,
+    "manaMax": 100,
+    "mana": 100,
+    "poder": 10,
+    "defesa": 5,
+    "critico": 5,
+    "esquiva": 3,
+    "inventario": {},
+    "cooldowns": {},
+    "perguntasHoje": 1,
+    "ultimoResetPerguntas": 1787005334757
   },
   "79792389017845@lid": {
     "nome": "𝘼𝙉𝘿𝙍𝘼𝘿𝙀",
-    "xp": 58,
+    "xp": 710,
     "nivel": 10,
-    "stamina": 50,
+    "stamina": 150,
     "maxStamina": 150,
-    "fatigue": 81,
+    "fatigue": 0,
     "saldo": 0,
-    "banco": 1144054,
-    "restEnd": 1783213315197,
+    "banco": 1152654,
+    "restEnd": 0,
     "cooldowns": {},
     "classe": "Assassino",
     "perguntasHoje": 0,
     "ultimoResetPerguntas": 1782496777217,
     "segurancaAte": 0,
     "ultimoXP": 1782929768163,
-    "vidaMax": 6085,
-    "vida": 2227,
+    "vidaMax": 135,
+    "vida": 135,
     "mana": 100,
-    "manaMax": 3700,
-    "poder": 2410,
-    "defesa": 964,
-    "critico": 125,
-    "esquiva": 83,
+    "manaMax": 130,
+    "poder": 30,
+    "defesa": 12,
+    "critico": 6,
+    "esquiva": 3,
     "inventario": {},
     "arma": null,
     "armadura": null,
     "acessorio": null,
-    "trabalhosSeguidos": 30,
+    "trabalhosSeguidos": 10,
     "ultimoTrabalho": 0,
     "missoes": {
       "ativas": [],
@@ -1140,16 +1152,16 @@
       "totalCompletas": 0,
       "ultimoReset": 1782506683555
     },
-    "ultimoTrabalhoReal": 1783193614443
+    "ultimoTrabalhoReal": 1783518711169
   },
   "209092345864403@lid": {
     "nome": "PIERRY",
-    "xp": 54,
+    "xp": 299,
     "nivel": 15,
-    "stamina": 80,
+    "stamina": 0,
     "maxStamina": 175,
-    "fatigue": 10,
-    "saldo": 368,
+    "fatigue": 55,
+    "saldo": 1284,
     "banco": 50000,
     "restEnd": 0,
     "cooldowns": {},
@@ -1157,7 +1169,7 @@
     "perguntasHoje": 0,
     "ultimoResetPerguntas": 1782496777819,
     "segurancaAte": 0,
-    "ultimoXP": 1782916410871,
+    "ultimoXP": 1786054641895,
     "vidaMax": 155,
     "vida": 100,
     "mana": 100,
@@ -1170,9 +1182,9 @@
     "arma": null,
     "armadura": null,
     "acessorio": null,
-    "trabalhosSeguidos": 2,
+    "trabalhosSeguidos": 8,
     "ultimoTrabalho": 0,
-    "ultimoTrabalhoReal": 1782498533608,
+    "ultimoTrabalhoReal": 1783347693926,
     "missoes": {
       "ativas": [],
       "concluidas": [],
@@ -4532,15 +4544,15 @@
   },
   "66276093374557@lid": {
     "nome": "Grazi",
-    "xp": 313,
+    "xp": 1055,
     "nivel": 12,
     "classe": "mago",
-    "stamina": 70,
-    "fatigue": 45,
-    "restEnd": 0,
+    "stamina": 0,
+    "fatigue": 80,
+    "restEnd": 1785343670387,
     "maxStamina": 160,
     "saldo": 0,
-    "banco": 22878,
+    "banco": 25358,
     "segurancaAte": 1781667435811,
     "perguntasHoje": 3,
     "ultimoResetPerguntas": 1781753562765,
@@ -4552,8 +4564,8 @@
     "critico": 6,
     "esquiva": 3,
     "ultimoTrabalho": 1781564899858,
-    "trabalhosSeguidos": 9,
-    "ultimoTrabalhoReal": 1783051018249,
+    "trabalhosSeguidos": 16,
+    "ultimoTrabalhoReal": 1785343028320,
     "inventario": {},
     "arma": null,
     "armadura": null,
@@ -6224,28 +6236,28 @@
   },
   "121814231597079@lid": {
     "nome": "DUDA 🐈‍⬛",
-    "xp": 501,
+    "xp": 555,
     "nivel": 7,
-    "stamina": 11,
-    "fatigue": 30,
+    "stamina": 135,
+    "fatigue": 0,
     "classe": "arqueiro",
     "restEnd": 0,
     "maxStamina": 135,
-    "saldo": 300,
+    "saldo": 956,
     "banco": 8062,
     "segurancaAte": 1781667454893,
-    "perguntasHoje": 16,
+    "perguntasHoje": 1,
     "ultimoResetPerguntas": 1781559149557,
     "ultimoXP": 1782934623318,
     "vidaMax": 135,
-    "vida": 100,
+    "vida": 135,
     "poder": 24,
     "defesa": 10,
     "critico": 5,
     "esquiva": 3,
     "ultimoTrabalho": 1781560306280,
-    "trabalhosSeguidos": 1,
-    "ultimoTrabalhoReal": 1781571468915,
+    "trabalhosSeguidos": 2,
+    "ultimoTrabalhoReal": 1783519055876,
     "cooldownTrabalho": 1781571476915,
     "cooldowns": {},
     "manaMax": 111,
@@ -10137,19 +10149,19 @@
   },
   "36310307840112@lid": {
     "nome": "Kayenne Martins",
-    "xp": 45,
+    "xp": 376,
     "nivel": 7,
-    "stamina": 130,
+    "stamina": 95,
     "maxStamina": 135,
-    "fatigue": 0,
-    "saldo": 893,
+    "fatigue": 20,
+    "saldo": 588,
     "restEnd": 0,
     "classe": "guerreiro",
-    "banco": 13353,
+    "banco": 15825,
     "segurancaAte": 0,
     "ultimoXP": 1782910242487,
     "vidaMax": 155,
-    "vida": 150,
+    "vida": 155,
     "poder": 24,
     "defesa": 13,
     "critico": 5,
@@ -10157,8 +10169,8 @@
     "perguntasHoje": 10,
     "ultimoResetPerguntas": 1783196758210,
     "ultimoTrabalho": 1781566277483,
-    "trabalhosSeguidos": 21,
-    "ultimoTrabalhoReal": 1783186021272,
+    "trabalhosSeguidos": 4,
+    "ultimoTrabalhoReal": 1783448747441,
     "cooldownTrabalho": 1781575960907,
     "inventario": {},
     "arma": null,
@@ -11275,636 +11287,40 @@
     }
   },
   "7211669573681@lid": {
+    "fatigue": 2,
     "nome": "Widnes Santos",
-    "xp": 84,
-    "nivel": 8,
-    "stamina": 6530,
-    "maxStamina": 6605,
-    "fatigue": 35,
-    "saldo": 634104,
+    "xp": 180,
+    "nivel": 5,
+    "stamina": 125,
+    "maxStamina": 125,
+    "saldo": 1917,
     "banco": 0,
-    "restEnd": 0,
-    "cooldowns": {
-      "golpe_forte": 1783015491795
-    },
-    "classe": "Guerreiro",
-    "perguntasHoje": 6,
-    "ultimoResetPerguntas": 1783096666525,
-    "segurancaAte": 1782788429445,
-    "ultimoXP": 1782929066990,
-    "vidaMax": 6625,
-    "vida": 6620,
-    "mana": 3,
-    "manaMax": 3963,
-    "poder": 2612,
-    "defesa": 1048,
-    "critico": 135,
-    "esquiva": 89,
+    "classe": "Sem Classe",
+    "vidaMax": 125,
+    "vida": 125,
+    "manaMax": 115,
+    "mana": 100,
+    "poder": 20,
+    "defesa": 9,
+    "critico": 5,
+    "esquiva": 3,
     "inventario": {
       "guerreiro_espada_ferro": 1,
       "guerreiro_armadura_ferro": 1,
-      "guerreiro_anel_forca": 1,
-      "guerreiro_machado_guerra": 1,
-      "guerreiro_armadura_rei": 1,
-      "amuleto_lendario": 1
+      "pocao_vida": 2,
+      "pocao_stamina": 1,
+      "fragmento_da_honra": 1
     },
-    "arma": "guerreiro_machado_guerra",
-    "armadura": "guerreiro_armadura_rei",
-    "acessorio": "guerreiro_anel_forca",
-    "trabalhosSeguidos": 35,
-    "ultimoTrabalho": 0,
-    "ultimoTrabalhoReal": 1783196212551,
-    "missoes": {
-      "ativas": [],
-      "concluidas": [],
-      "especiaisConcluidas": [],
-      "diarias": [
-        {
-          "id": "matar_facil",
-          "nome": "🐺 Caçador de Goblins",
-          "descricao": "Derrote 5 inimigos FÁCEIS",
-          "tipo": "matar_dificuldade",
-          "alvo": "facil",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 50
-          },
-          "emoji": "🟢",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "matar_normal",
-          "nome": "⚔️ Guerreiro Experiente",
-          "descricao": "Derrote 4 inimigos NORMAIS",
-          "tipo": "matar_dificuldade",
-          "alvo": "normal",
-          "quantidade": 4,
-          "recompensa": {
-            "dinheiro": 350,
-            "xp": 80
-          },
-          "emoji": "🟡",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "matar_dificil",
-          "nome": "🔥 Matador de Demônios",
-          "descricao": "Derrote 3 inimigos DIFÍCEIS",
-          "tipo": "matar_dificuldade",
-          "alvo": "dificil",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 600,
-            "xp": 150
-          },
-          "emoji": "🔴",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "matar_chefe",
-          "nome": "👑 Caçador de Chefes",
-          "descricao": "Derrote 1 CHEFE",
-          "tipo": "matar_dificuldade",
-          "alvo": "chefe",
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 1000,
-            "xp": 250
-          },
-          "emoji": "💀",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "treinar_facil",
-          "nome": "🏋️ Treino Leve",
-          "descricao": "Treine 3 vezes (qualquer dificuldade)",
-          "tipo": "treinar",
-          "alvo": "treinar",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 150,
-            "xp": 30
-          },
-          "emoji": "💪",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "treinar_pesado",
-          "nome": "🏋️‍♂️ Treino Pesado",
-          "descricao": "Treine 5 vezes",
-          "tipo": "treinar",
-          "alvo": "treinar",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 300,
-            "xp": 70
-          },
-          "emoji": "🔥",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "trabalhador",
-          "nome": "💼 Trabalhador Incansável",
-          "descricao": "Trabalhe 5 vezes",
-          "tipo": "trabalhar",
-          "alvo": "trabalhar",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 250,
-            "xp": 50
-          },
-          "emoji": "💰",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "trabalhador_master",
-          "nome": "💎 Mestre do Trabalho",
-          "descricao": "Trabalhe 10 vezes",
-          "tipo": "trabalhar",
-          "alvo": "trabalhar",
-          "quantidade": 10,
-          "recompensa": {
-            "dinheiro": 600,
-            "xp": 120
-          },
-          "emoji": "🏆",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "depositar_dinheiro",
-          "nome": "🏦 Economizador",
-          "descricao": "Deposite dinheiro no banco 3 vezes",
-          "tipo": "depositar",
-          "alvo": "depositar",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 100,
-            "xp": 20
-          },
-          "emoji": "💳",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "quiz_aprendiz",
-          "nome": "🧠 Aprendiz do Quiz",
-          "descricao": "Responda 5 perguntas corretamente",
-          "tipo": "perguntas",
-          "alvo": "perguntas",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 40
-          },
-          "emoji": "📚",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "quiz_mestre",
-          "nome": "🎓 Mestre do Conhecimento",
-          "descricao": "Responda 15 perguntas corretamente",
-          "tipo": "perguntas",
-          "alvo": "perguntas",
-          "quantidade": 15,
-          "recompensa": {
-            "dinheiro": 600,
-            "xp": 150
-          },
-          "emoji": "🏅",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "usar_skills",
-          "nome": "✨ Aprendiz de Habilidades",
-          "descricao": "Use 5 skills diferentes",
-          "tipo": "skills",
-          "alvo": "skills",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 300,
-            "xp": 60
-          },
-          "emoji": "🔥",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "usar_skills_master",
-          "nome": "⚡ Mestre das Habilidades",
-          "descricao": "Use 15 skills",
-          "tipo": "skills",
-          "alvo": "skills",
-          "quantidade": 15,
-          "recompensa": {
-            "dinheiro": 700,
-            "xp": 180
-          },
-          "emoji": "🌟",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "comprar_item",
-          "nome": "🛒 Comprador Ávido",
-          "descricao": "Compre 3 itens na loja",
-          "tipo": "comprar",
-          "alvo": "comprar",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 40
-          },
-          "emoji": "💰",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "comprar_item_master",
-          "nome": "🛍️ Viciado em Compras",
-          "descricao": "Compre 10 itens na loja",
-          "tipo": "comprar",
-          "alvo": "comprar",
-          "quantidade": 10,
-          "recompensa": {
-            "dinheiro": 800,
-            "xp": 200
-          },
-          "emoji": "💎",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "equipar_item",
-          "nome": "⚔️ Equipador Iniciante",
-          "descricao": "Equipe 3 itens diferentes",
-          "tipo": "equipar",
-          "alvo": "equipar",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 50
-          },
-          "emoji": "🛡️",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "equipamento_completo",
-          "nome": "🛡️ Equipamento Completo",
-          "descricao": "Tenha arma, armadura e acessório equipados",
-          "tipo": "equipamento",
-          "alvo": "completo",
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 500,
-            "xp": 100
-          },
-          "emoji": "👑",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "roubar",
-          "nome": "🦹 Pequeno Ladrão",
-          "descricao": "Roube alguém 3 vezes",
-          "tipo": "roubar",
-          "alvo": "roubar",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 100,
-            "xp": 20
-          },
-          "emoji": "😈",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "roubar_master",
-          "nome": "🦹‍♂️ Mestre dos Roubos",
-          "descricao": "Roube alguém 10 vezes",
-          "tipo": "roubar",
-          "alvo": "roubar",
-          "quantidade": 10,
-          "recompensa": {
-            "dinheiro": 500,
-            "xp": 100
-          },
-          "emoji": "💀",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "seguranca",
-          "nome": "🛡️ Contratar Segurança",
-          "descricao": "Contrate um segurança",
-          "tipo": "seguranca",
-          "alvo": "seguranca",
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 50,
-            "xp": 10
-          },
-          "emoji": "👮",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "converter",
-          "nome": "🎨 Artista Digital",
-          "descricao": "Converta 5 textos em figurinhas",
-          "tipo": "converter",
-          "alvo": "converter",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 150,
-            "xp": 30
-          },
-          "emoji": "🖼️",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "play",
-          "nome": "🎵 DJ do Grupo",
-          "descricao": "Toque 3 músicas",
-          "tipo": "play",
-          "alvo": "play",
-          "quantidade": 3,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 40
-          },
-          "emoji": "🎧",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "figurinha",
-          "nome": "📸 Criador de Figurinhas",
-          "descricao": "Crie 5 figurinhas",
-          "tipo": "figurinha",
-          "alvo": "figurinha",
-          "quantidade": 5,
-          "recompensa": {
-            "dinheiro": 150,
-            "xp": 30
-          },
-          "emoji": "🎨",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "desafio_combate",
-          "nome": "⚔️ Mestre da Espada",
-          "descricao": "Cause 500 de dano total em combates",
-          "tipo": "dano_total",
-          "alvo": 500,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 400,
-            "xp": 80
-          },
-          "emoji": "🗡️",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "desafio_combate_2",
-          "nome": "🔥 Guerreiro Lendário",
-          "descricao": "Cause 1000 de dano total em combates",
-          "tipo": "dano_total",
-          "alvo": 1000,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 800,
-            "xp": 160
-          },
-          "emoji": "⚡",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "defesa_1",
-          "nome": "🛡️ Escudo Humano",
-          "descricao": "Receba 100 de dano sem morrer",
-          "tipo": "dano_recebido",
-          "alvo": 100,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 200,
-            "xp": 40
-          },
-          "emoji": "🛡️",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "defesa_2",
-          "nome": "🏰 Muralha Viva",
-          "descricao": "Receba 300 de dano sem morrer",
-          "tipo": "dano_recebido",
-          "alvo": 300,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 500,
-            "xp": 100
-          },
-          "emoji": "🧱",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "dinheiro_1",
-          "nome": "💵 Pequeno Acúmulo",
-          "descricao": "Tenha R$500 em sua carteira",
-          "tipo": "dinheiro_carteira",
-          "alvo": 500,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 100,
-            "xp": 20
-          },
-          "emoji": "💰",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "dinheiro_2",
-          "nome": "💸 Riqueza Moderada",
-          "descricao": "Tenha R$2000 em sua carteira",
-          "tipo": "dinheiro_carteira",
-          "alvo": 2000,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 300,
-            "xp": 60
-          },
-          "emoji": "💎",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "sorte_1",
-          "nome": "🎲 Sortudo",
-          "descricao": "Jogue um dado 10 vezes",
-          "tipo": "dado",
-          "alvo": 10,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 100,
-            "xp": 20
-          },
-          "emoji": "🎲",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "sorte_2",
-          "nome": "🪙 Cara ou Coroa",
-          "descricao": "Jogue a moeda 15 vezes",
-          "tipo": "moeda",
-          "alvo": 15,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 150,
-            "xp": 30
-          },
-          "emoji": "🪙",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "social_1",
-          "nome": "📢 Mensageiro",
-          "descricao": "Use !marcar 5 vezes",
-          "tipo": "marcar",
-          "alvo": 5,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 100,
-            "xp": 20
-          },
-          "emoji": "📣",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "social_2",
-          "nome": "👑 Rei das Menções",
-          "descricao": "Use !marcar 15 vezes",
-          "tipo": "marcar_total",
-          "alvo": 15,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 300,
-            "xp": 60
-          },
-          "emoji": "👑",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "consistencia_1",
-          "nome": "📅 Jogador Regular",
-          "descricao": "Complete 10 missões no total",
-          "tipo": "missoes_total",
-          "alvo": 10,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 300,
-            "xp": 60
-          },
-          "emoji": "📊",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "consistencia_2",
-          "nome": "📆 Jogador Dedicado",
-          "descricao": "Complete 30 missões no total",
-          "tipo": "missoes_total",
-          "alvo": 30,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 1000,
-            "xp": 200
-          },
-          "emoji": "🏅",
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "consistencia_3",
-          "nome": "🏆 Mestre das Missões",
-          "descricao": "Complete 80 missões no total",
-          "tipo": "missoes_total",
-          "alvo": 80,
-          "quantidade": 1,
-          "recompensa": {
-            "dinheiro": 3000,
-            "xp": 600
-          },
-          "emoji": "🏆",
-          "progresso": 0,
-          "concluida": false
-        }
-      ],
-      "totalCompletas": 0,
-      "ultimoReset": 1782506070699
-    },
-    "errosHoje": 3,
-    "morteCooldown": 1783185826004,
-    "usoItens": {
-      "data": "Thu Jul 02 2026",
-      "count": 1,
-      "batalhas": 0
-    },
-    "missoesDiarias": {
-      "data": "Fri Jul 03 2026",
-      "lista": [
-        {
-          "id": "matar_tudo",
-          "nome": "Aniquilador",
-          "descricao": "Derrote 20 inimigos no total",
-          "tipo": "matar_qualquer",
-          "alvo": "qualquer",
-          "quantidade": 20,
-          "nivelMinimo": 31,
-          "recompensa": {
-            "item": "pocao_lendaria",
-            "quantidade": 1
-          },
-          "progresso": 0,
-          "concluida": false
-        },
-        {
-          "id": "matar_dragao",
-          "nome": "Matador de Dragões",
-          "descricao": "Derrote 2 dragões ancestrais",
-          "tipo": "matar",
-          "alvo": "Dragão Ancestral",
-          "quantidade": 2,
-          "nivelMinimo": 31,
-          "recompensa": {
-            "item": "elixir_imortalidade",
-            "quantidade": 2
-          },
-          "progresso": 0,
-          "concluida": false
-        }
-      ]
-    }
+    "cooldowns": {},
+    "trabalhosSeguidos": 1,
+    "ultimoTrabalhoReal": 1786370736619,
+    "arma": "guerreiro_espada_ferro",
+    "armadura": "guerreiro_armadura_ferro",
+    "restEnd": 0,
+    "acessorio": "fragmento_da_honra",
+    "perguntasHoje": 3,
+    "ultimoResetPerguntas": 1787005428632,
+    "segurancaAte": 1787273763405
   },
   "35107415003298@lid": {
     "nome": "Vítima",
@@ -78767,13 +78183,13 @@
   },
   "94296728445042@lid": {
     "nome": "Maria Helena✨",
-    "xp": 14,
+    "xp": 163,
     "nivel": 4,
-    "stamina": 45,
+    "stamina": 10,
     "maxStamina": 120,
-    "fatigue": 20,
-    "saldo": 0,
-    "restEnd": 0,
+    "fatigue": 55,
+    "saldo": 1730,
+    "restEnd": 1783354347494,
     "classe": "guerreiro",
     "perguntasHoje": 5,
     "ultimoResetPerguntas": 1783189863669,
@@ -78781,7 +78197,7 @@
     "ultimoXP": 1782916429620,
     "banco": 2827,
     "vidaMax": 140,
-    "vida": 131,
+    "vida": 140,
     "poder": 18,
     "defesa": 11,
     "critico": 5,
@@ -78794,8 +78210,8 @@
     "manaMax": 72,
     "mana": 60,
     "cooldowns": {},
-    "trabalhosSeguidos": 1,
-    "ultimoTrabalhoReal": 1783000503547,
+    "trabalhosSeguidos": 6,
+    "ultimoTrabalhoReal": 1783353901052,
     "missoes": {
       "ativas": [],
       "concluidas": [],
@@ -80489,12 +79905,12 @@
   },
   "25066033139926@lid": {
     "nome": "𝓛𝓸𝓻𝓮𝓷𝓪",
-    "xp": 175,
+    "xp": 135,
     "nivel": 2,
     "stamina": 110,
     "maxStamina": 110,
     "fatigue": 0,
-    "saldo": 2677,
+    "saldo": 2417,
     "restEnd": 0,
     "classe": "guerreiro",
     "perguntasHoje": 0,
@@ -136682,17 +136098,17 @@
   },
   "145394004701415@lid": {
     "nome": "blublhuh✿",
-    "xp": 14,
+    "xp": 44,
     "nivel": 1,
     "stamina": 90,
     "maxStamina": 105,
     "fatigue": 5,
-    "saldo": 274,
+    "saldo": 474,
     "restEnd": 0,
     "cooldowns": {},
     "classe": "guerreiro",
-    "perguntasHoje": 0,
-    "ultimoResetPerguntas": 1782328710857,
+    "perguntasHoje": 2,
+    "ultimoResetPerguntas": 1786240644682,
     "segurancaAte": 0,
     "ultimoXP": 1782499984778,
     "vidaMax": 125,
@@ -154107,5 +153523,117 @@
     "acessorio": null,
     "trabalhosSeguidos": 0,
     "ultimoTrabalho": 0
+  },
+  "280930304405680@lid": {
+    "nome": "Henrique",
+    "xp": 0,
+    "nivel": 1,
+    "stamina": 100,
+    "maxStamina": 100,
+    "fatigue": 0,
+    "saldo": 100,
+    "banco": 0,
+    "restEnd": 0,
+    "cooldowns": {},
+    "classe": "Sem Classe",
+    "perguntasHoje": 0,
+    "ultimoResetPerguntas": 1783477134123,
+    "segurancaAte": 0,
+    "ultimoXP": 0,
+    "vidaMax": 100,
+    "vida": 100,
+    "mana": 100,
+    "manaMax": 100,
+    "poder": 10,
+    "defesa": 5,
+    "critico": 5,
+    "esquiva": 3,
+    "inventario": {},
+    "arma": null,
+    "armadura": null,
+    "acessorio": null,
+    "trabalhosSeguidos": 0,
+    "ultimoTrabalho": 0
+  },
+  "16282858578121@lid": {
+    "nome": "𝕯𝕬𝕹✝️",
+    "xp": 193,
+    "nivel": 5,
+    "stamina": 50,
+    "maxStamina": 125,
+    "fatigue": 37,
+    "saldo": 0,
+    "banco": 4638,
+    "restEnd": 1787087260936,
+    "cooldowns": {},
+    "classe": "Mago",
+    "perguntasHoje": 2,
+    "ultimoResetPerguntas": 1787077276346,
+    "segurancaAte": 1787274394030,
+    "ultimoXP": 0,
+    "vidaMax": 105,
+    "vida": 100,
+    "mana": 100,
+    "manaMax": 165,
+    "poder": 20,
+    "defesa": 7,
+    "critico": 5,
+    "esquiva": 3,
+    "inventario": {},
+    "arma": null,
+    "armadura": null,
+    "acessorio": null,
+    "trabalhosSeguidos": 5,
+    "ultimoTrabalho": 0,
+    "ultimoTrabalhoReal": 1787086867831
+  },
+  "219138073084159@lid": {
+    "nome": "Davyd Kaique",
+    "xp": 1109,
+    "nivel": 12,
+    "stamina": 106,
+    "maxStamina": 160,
+    "fatigue": 5,
+    "saldo": 3649,
+    "banco": 20000,
+    "restEnd": 0,
+    "cooldowns": {
+      "tiro_preciso": 1787089350260,
+      "chuva_flechas": 1787087607746
+    },
+    "classe": "Arqueiro",
+    "perguntasHoje": 20,
+    "ultimoResetPerguntas": 1787130583363,
+    "segurancaAte": 1787273786327,
+    "ultimoXP": 0,
+    "vidaMax": 160,
+    "vida": 143,
+    "mana": 3,
+    "manaMax": 126,
+    "poder": 34,
+    "defesa": 14,
+    "critico": 6,
+    "esquiva": 3,
+    "inventario": {
+      "arqueiro_arco_curto": 1,
+      "arqueiro_arco_aurora": 1,
+      "arqueiro_armadura_sagrada": 1,
+      "arqueiro_colar_vento": 1,
+      "arqueiro_bota": 1,
+      "arqueiro_anel_olho": 1,
+      "pocao_grande": 2,
+      "elixir_forca": 2,
+      "pocao_mana": 1,
+      "pocao_stamina": 1,
+      "fragmento_da_honra": 2,
+      "pocao_vida": 2
+    },
+    "arma": "arqueiro_arco_aurora",
+    "armadura": "arqueiro_armadura_sagrada",
+    "acessorio": "fragmento_da_honra",
+    "trabalhosSeguidos": 14,
+    "ultimoTrabalho": 0,
+    "ultimoTrabalhoReal": 1787079372776,
+    "morteCooldown": 1787103112923
   }
 }

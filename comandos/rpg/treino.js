@@ -8,7 +8,7 @@ module.exports = {
         const { getJogador } = require("../../servicos/jogador");
         const { lerJogadores, escreverJogadores } = require("../../servicos/banco");
         const { getAtributosCombate } = require("../../utils/helpers");
-	const { progressoMissao } = require("../../servicos/missoes");
+        const { progressoMissao } = require("../../servicos/missoes");
         
         const jogador = getJogador(remetenteId, msg.pushName || "Usuário");
         const agora = Date.now();
@@ -41,43 +41,32 @@ module.exports = {
         const dificuldade = args[0]?.toLowerCase() || "normal";
         
         const dificuldades = {
-            facil: { custoStamina: 10, multiplicador: 0.6, emoji: "🟢", nome: "FÁCIL", fatigue: 2 },
-            normal: { custoStamina: 15, multiplicador: 1.0, emoji: "🟡", nome: "NORMAL", fatigue: 5 },
-            dificil: { custoStamina: 20, multiplicador: 1.8, emoji: "🔴", nome: "DIFÍCIL", fatigue: 10 },
-            chefe: { custoStamina: 30, multiplicador: 3.0, emoji: "💀", nome: "CHEFE", fatigue: 20 }
+            facil: { custoStamina: 0, multiplicador: 0.6, emoji: "🟢", nome: "FÁCIL", fatigue: 2 },
+            normal: { custoStamina: 0, multiplicador: 1.0, emoji: "🟡", nome: "NORMAL", fatigue: 5 },
+            dificil: { custoStamina: 0, multiplicador: 1.8, emoji: "🔴", nome: "DIFÍCIL", fatigue: 10 },
+            chefe: { custoStamina: 0, multiplicador: 3.0, emoji: "💀", nome: "CHEFE", fatigue: 20 }
         };
 
         const config = dificuldades[dificuldade];
         if (!config) {
             return sock.sendMessage(remoteJid, {
                 text: `⚔️ *DIFICULDADES DISPONÍVEIS:*\n\n` +
-                      `🟢 *facil* - Stamina: 10 | Fadiga: 2\n` +
-                      `🟡 *normal* - Stamina: 15 | Fadiga: 5\n` +
-                      `🔴 *dificil* - Stamina: 20 | Fadiga: 10\n` +
-                      `💀 *chefe* - Stamina: 30 | Fadiga: 20\n\n` +
+                      `🟢 *facil* - Fatigue: 2\n` +
+                      `🟡 *normal* - Fatigue: 5\n` +
+                      `🔴 *dificil* - Fatigue: 10\n` +
+                      `💀 *chefe* - Fatigue: 20\n\n` +
                       `📌 *Use:* !treino <dificuldade>\n` +
                       `Exemplo: !treino chefe`
             });
         }
 
-        // ===== VERIFICA STAMINA =====
-        if (jogador.stamina < config.custoStamina) {
-            return sock.sendMessage(remoteJid, {
-                text: `😴 *Stamina insuficiente!*\n\n` +
-                      `⚡ Necessário: ${config.custoStamina}\n` +
-                      `⚡ Atual: ${jogador.stamina}\n\n` +
-                      `💤 Use !descansar para recuperar.`
-            });
-        }
-
-        // ===== GASTA STAMINA E FADIGA =====
-        jogador.stamina -= config.custoStamina;
+        // ===== SÓ DESCONTA FADIGA =====
         jogador.fatigue = Math.min(100, (jogador.fatigue || 0) + config.fatigue);
 
         // ===== INICIA COMBATE =====
         const inimigo = iniciarCombate(remetenteId, jogador.nivel, config.multiplicador);
         
-        // 🔥 PEGA ATRIBUTOS COM ITENS
+        // ===== PEGA ATRIBUTOS COM ITENS =====
         const stats = getAtributosCombate(jogador);
 
         // ===== SALVA JOGADOR =====
@@ -85,15 +74,17 @@ module.exports = {
         dados[remetenteId] = jogador;
         escreverJogadores(dados);
 
-	// ===== PROGRESSO DE MISSÃO (TREINAR) =====
-const missoesConcluidas = progressoMissao(remetenteId, "treinar");
-if (missoesConcluidas.length > 0) {
-    let msgMissao = "\n🎯 *MISSÕES ATUALIZADAS!*\n";
-    for (const m of missoesConcluidas) {
-        msgMissao += `✅ *${m.nome}* concluída!\n`;
-    }
-    // Adiciona na mensagem de início do treino
-}
+        // ===== PROGRESSO DE MISSÃO (TREINAR) =====
+        const missoesConcluidas = progressoMissao(remetenteId, "treinar");
+        let msgMissao = "";
+        if (missoesConcluidas.length > 0) {
+            msgMissao = "\n🎯 *MISSÕES ATUALIZADAS!*\n";
+            for (const m of missoesConcluidas) {
+                msgMissao += `✅ *${m.nome}* concluída!\n`;
+                if (m.recompensa.xp) msgMissao += `   ⭐ +${m.recompensa.xp} XP\n`;
+                if (m.recompensa.dinheiro) msgMissao += `   💰 +R$${m.recompensa.dinheiro}\n`;
+            }
+        }
 
         // ===== MENSAGEM DE INÍCIO COM IMAGEM =====
         let imagemPath = "";
@@ -123,14 +114,14 @@ if (missoesConcluidas.length > 0) {
                   `🛡️ Defesa: ${stats.defesa}\n` +
                   `🎯 Crítico: ${stats.critico}%\n` +
                   `💨 Esquiva: ${stats.esquiva}%\n\n` +
-                  `⚡ -${config.custoStamina} Stamina\n` +
                   `😵 +${config.fatigue} Fatigue (${jogador.fatigue}%)\n\n` +
                   `🎯 *COMANDOS:*\n` +
                   `!atacar - Ataque normal\n` +
                   `!usarskill <ID> - Habilidade\n` +
                   `!combo - 3 ataques seguidos\n` +
                   `!golpe - Super golpe\n` +
-                  `!fugir - Tentar fugir`;
+                  `!fugir - Tentar fugir` +
+                  `${msgMissao}`;
 
         try {
             if (fs.existsSync(imagemPath)) {

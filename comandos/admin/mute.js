@@ -70,7 +70,7 @@ module.exports = {
         escreverMutados(mutados);
 
         await sock.sendMessage(remoteJid, {
-            text: `🔇 @${alvo.split('@')[0]} foi MUTADO com sucesso!\n\n⚠️ Se enviar mensagem, será removido do grupo.`,
+            text: `🔇 @${alvo.split('@')[0]} foi MUTADO com sucesso!\n\n⚠️ Suas mensagens serão apagadas.`,
             mentions: [alvo]
         });
     }

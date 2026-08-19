@@ -2,6 +2,7 @@
 // ESTADO GLOBAL DO COMBATE - COM DIFICULDADE
 // ============================================================
 const combatesAtivos = {};
+const { gerarFraqueza } = require("../../servicos/combate");
 
 // ========== TODOS OS INIMIGOS ==========
 const TIPOS_INIMIGOS = [
@@ -380,7 +381,11 @@ function iniciarCombate(userId, nivel, multiplicadorGlobal = 1.0) {
         emoji: tipo.emoji,
         imagem: tipo.imagem,
         bonusRecompensa: bonusRecompensa,
-        bonusXP: bonusXP
+        bonusXP: bonusXP,
+	fraqueza: gerarFraqueza(),  // <-- ADICIONA
+    defendendo: false,          // <-- ADICIONA
+    defesaOriginal: 0           // <-- ADICIONA
+
     };
     
     combatesAtivos[userId] = inimigo;

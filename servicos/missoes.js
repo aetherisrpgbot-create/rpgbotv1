@@ -44,31 +44,33 @@ function gerarMissoes(userId, nivel) {
         dados[userId] = { ativas: [], concluidas: [], ultimoReset: null };
     }
 
-    const hoje = new Date().toDateString();
-    if (dados[userId].ultimoReset !== hoje) {
-        dados[userId].ativas = [];
-        dados[userId].concluidas = [];
-        dados[userId].ultimoReset = hoje;
-    }
+    // Só gera missões se não tiver nenhuma ativa
+    if (dados[userId].ativas.length === 0) {
+        if (dados[userId].concluidas.length > 0) {
+            dados[userId].concluidas = [];
+            console.log(`🔄 Resetando histórico de missões para ${userId}`);
+        }
 
-    while (dados[userId].ativas.length < 3) {
         const pool = getMissoesPorNivel(nivel);
-        const disponiveis = pool.filter(m => 
-            !dados[userId].concluidas.some(c => c.id === m.id)
-        );
+        const disponiveis = [...pool];
         
-        if (disponiveis.length === 0) break;
+        for (let i = disponiveis.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [disponiveis[i], disponiveis[j]] = [disponiveis[j], disponiveis[i]];
+        }
+
+        const sorteadas = disponiveis.slice(0, 3);
         
-        const idx = Math.floor(Math.random() * disponiveis.length);
-        const missao = disponiveis[idx];
-        dados[userId].ativas.push({
-            ...missao,
+        dados[userId].ativas = sorteadas.map(m => ({
+            ...m,
             progresso: 0,
             concluida: false
-        });
+        }));
+        
+        console.log(`📋 ${sorteadas.length} missões geradas para ${userId}`);
+        escreverMissoes(dados);
     }
 
-    escreverMissoes(dados);
     return dados[userId].ativas || [];
 }
 
@@ -92,36 +94,45 @@ function progressoMissao(userId, tipo) {
                 concluidas.push(missao);
                 console.log(`🎯 Missão concluída: ${missao.nome}`);
                 
-                // ===== APLICA RECOMPENSA =====
-                const jogador = lerJogadores()[userId];
-                if (jogador) {
-                    if (missao.recompensa.xp) {
-                        const { adicionarXP } = require("./jogador");
-                        const result = adicionarXP(userId, jogador.nome, missao.recompensa.xp);
-                        console.log(`⭐ +${missao.recompensa.xp} XP`, result);
-                    }
-                    if (missao.recompensa.dinheiro) {
-                        jogador.saldo = (jogador.saldo || 0) + missao.recompensa.dinheiro;
-                        console.log(`💰 +R$${missao.recompensa.dinheiro}`);
-                        escreverJogadores(lerJogadores());
-                    }
+                // ===== APLICA RECOMPENSA (IGUAL AO TRABALHAR) =====
+                const { atualizarSaldo, adicionarXP } = require("./jogador");
+                const jogador = require("./jogador").getJogador(userId, "Jogador");
+
+                if (missao.recompensa.xp) {
+                    const result = adicionarXP(userId, jogador.nome, missao.recompensa.xp);
+                    console.log(`⭐ +${missao.recompensa.xp} XP`, result);
+                }
+
+                if (missao.recompensa.dinheiro) {
+                    atualizarSaldo(userId, missao.recompensa.dinheiro, 'saldo');
+                    console.log(`💰 +R$${missao.recompensa.dinheiro}`);
                 }
                 
                 if (!dados[userId].concluidas) dados[userId].concluidas = [];
-                dados[userId].concluidas.push({ id: missao.id, nome: missao.nome });
+                dados[userId].concluidas.push({ 
+                    id: missao.id, 
+                    nome: missao.nome 
+                });
             }
         }
     }
 
+    // Remove as concluídas da lista ativa
     dados[userId].ativas = ativas.filter(m => !m.concluida);
 
+    // Gera novas missões
     const nivel = require("./jogador").getJogador(userId, "Jogador").nivel;
     while (dados[userId].ativas.length < 3) {
         const pool = getMissoesPorNivel(nivel);
         const disponiveis = pool.filter(m => 
             !dados[userId].concluidas.some(c => c.id === m.id)
         );
-        if (disponiveis.length === 0) break;
+        
+        if (disponiveis.length === 0) {
+            console.log(`📋 Todas as missões foram concluídas!`);
+            break;
+        }
+        
         const idx = Math.floor(Math.random() * disponiveis.length);
         const missao = disponiveis[idx];
         dados[userId].ativas.push({
@@ -129,6 +140,7 @@ function progressoMissao(userId, tipo) {
             progresso: 0,
             concluida: false
         });
+        console.log(`🔄 Nova missão gerada: ${missao.nome}`);
     }
 
     escreverMissoes(dados);
@@ -150,8 +162,9 @@ function resetarMissoes(userId) {
 }
 
 module.exports = {
+    lerMissoes,
+    getMissoesAtivas,
     gerarMissoes,
     progressoMissao,
-    getMissoesAtivas,
     resetarMissoes
 };

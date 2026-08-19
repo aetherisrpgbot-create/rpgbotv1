@@ -1,0 +1,17 @@
+{
+  "fragmento_da_honra": {
+    "id": "fragmento_da_honra",
+    "nome": "⚔️ Fragmento da Honra",
+    "tipo": "acessorio",
+    "ataque": 4,
+    "defesa": 4,
+    "critico": 4,
+    "esquiva": 0,
+    "vidaMax": 20,
+    "manaMax": 0,
+    "valor": 0,
+    "raridade": "lendario",
+    "classe": "guerreiro",
+    "descricao": "Um fragmento do Coração do Mundo que pulsa com a energia dos antigos heróis. Dizem que quem o carrega nunca perde a honra."
+  }
+}

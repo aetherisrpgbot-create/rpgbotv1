@@ -1,0 +1,89 @@
+{
+  "catacumbas_de_vhalor": {
+    "nome": "🏚️ 𝕮𝖆𝖙𝖆𝖈𝖚𝖒𝖇𝖆𝖘 𝖉𝖊 𝖁𝖍𝖆𝖑𝖔𝖗",
+    "subtitulo": "𝕺𝖓𝖉𝖊 𝖔𝖘 𝖌𝖚𝖆𝖗𝖉𝖎õ𝖊𝖘 𝖓𝖚𝖓𝖈𝖆 𝖉𝖊𝖘𝖈𝖆𝖓𝖘𝖆𝖒",
+    "lore": "Nos arredores da antiga cidade de Vhalor, escondida sob uma capela em ruínas, existe uma escadaria de pedra que desce até um labirinto esquecido pelo tempo. Os registros da Ordem afirmam que aquele lugar já foi um santuário onde cavaleiros guardavam um dos primeiros Fragmentos do Coração do Mundo.\n\nQuando a Grande Ruptura aconteceu, uma energia sombria invadiu as catacumbas. Os guardiões morreram... mas nunca encontraram descanso.\n\nHoje, suas armaduras vazias ainda caminham pelos corredores, arqueiros espectrais vigiam as passagens silenciosas, e criaturas alimentadas pela escuridão espreitam cada esquina. Dizem que as paredes sussurram os nomes daqueles que jamais conseguiram escapar.\n\nNo centro da masmorra repousa um enorme portão de pedra, marcado por uma espada quebrada. Atrás dele aguarda Sir Aldren, o Guardião Esquecido — o último comandante de Vhalor. Corrompido pela energia do Fragmento, ele jurou que ninguém pisaria naquele salão enquanto ainda pudesse erguer sua espada.\n\nMuitos aventureiros entram nas Catacumbas em busca de glória, tesouros e equipamentos raros. Pouquíssimos retornam.",
+    "nivel_minimo": 3,
+    "dificuldade": "media",
+    "salas": [
+      {
+        "id": "entrada",
+        "nome": "🕯️ 𝕊𝖆𝖑ã𝖔 𝖉𝖔𝖘 𝕳𝖊𝖗ó𝖎𝖘 𝕮𝖆í𝖉𝖔𝖘",
+        "ambiente": "Você desce os degraus de pedra e entra em um salão escuro. Archos de pedra sustentam o teto, e tochas azuladas iluminam estátuas de cavaleiros com armaduras rachadas. O silêncio é pesado, interrompido apenas por gotas de água que ecoam no chão. Você sente que está sendo observado.",
+        "inimigos": [
+          { "id": "sombra_do_ancestral", "nivel": 2, "quantidade": 2 }
+        ],
+        "puzzle": {
+          "pergunta": "Uma inscrição na parede: 'O que um herói nunca perde, mesmo na morte?'",
+          "dica": "💡 Não é um objeto, é algo que ele carrega na alma.",
+          "resposta": "honra"
+        },
+        "npc": {
+          "nome": "𝕰𝖘𝖕𝖊𝖈𝖙𝖗𝖔 𝖉𝖆 𝕲𝖚𝖆𝖗𝖉𝖎ã",
+          "personalidade": "Sábio, triste e enigmático. Fala como alguém que viu o reino cair.",
+          "fala_inicio": "Você sente o peso de mil anos... por que veio perturbar nosso descanso?",
+          "fala_puzzle": "A resposta está no que você carrega no coração, jovem tolo...",
+          "fala_libertar": "Então você busca o Fragmento? Prepare-se para enfrentar o passado.",
+          "fala_roubar": "Veio roubar o que não é seu? Então pereça como os outros."
+        }
+      },
+      {
+        "id": "corredor_sombrio",
+        "nome": "🌑 𝕮𝖔𝖗𝖗𝖊𝖉𝖔𝖗 𝖉𝖔𝖘 𝕾𝖚𝖘𝖘𝖚𝖗𝖗𝖔𝖘",
+        "ambiente": "O corredor se estreita enquanto você avança. Nas paredes, marcas de garras e manchas escuras que parecem sangue seco. As tochas tremem, e você ouve sussurros vindos das frestas. Algo se move na escuridão.",
+        "inimigos": [
+          { "id": "arqueiro_espectral", "nivel": 3, "quantidade": 2 },
+          { "id": "lobo_sombrio", "nivel": 3, "quantidade": 1 }
+        ],
+        "puzzle": {
+          "pergunta": "Os sussurros dizem: 'O que o medo mais alimenta?'",
+          "dica": "💡 É o que cresce com cada passo dado na escuridão.",
+          "resposta": "sombra"
+        },
+        "npc": null
+      },
+      {
+        "id": "sala_do_guardião",
+        "nome": "⚔️ 𝕮â𝖒𝖆𝖗𝖆 𝖉𝖔𝖘 𝕵𝖚𝖗𝖆𝖒𝖊𝖓𝖙𝖔𝖘",
+        "ambiente": "A sala se abre diante de você. No centro, uma espada quebrada está fincada em uma pedra. As paredes estão cobertas por inscrições em uma língua antiga. Você ouve o eco de uma voz grave: 'Apenas aqueles que compreendem o juramento podem passar.'",
+        "inimigos": [
+          { "id": "guerreiro_ancestral", "nivel": 3, "quantidade": 2 },
+          { "id": "guerreiro_ancestral", "nivel": 4, "quantidade": 1 }
+        ],
+        "puzzle": null,
+        "npc": {
+          "nome": "𝕰𝖘𝖕𝖊𝖈𝖙𝖗𝖔 𝖉𝖔 𝕮𝖔𝖒𝖆𝖓𝖉𝖆𝖓𝖙𝖊",
+          "personalidade": "Autoritário, solene e respeitoso. Fala como um comandante militar.",
+          "fala_inicio": "Pare, aventureiro. O que você busca aqui?",
+          "fala_combate": "Então a força é sua resposta? Prove que é digno.",
+          "fala_paz": "Você honra o juramento. Pode passar."
+        }
+      },
+      {
+        "id": "boss",
+        "nome": "👑 𝕺 𝕻𝖔𝖗𝖙ã𝖔 𝖉𝖆 𝕰𝖘𝖕𝖆𝖉𝖆 𝕼𝖚𝖊𝖇𝖗𝖆𝖉𝖆",
+        "ambiente": "O corredor termina em um portão de pedra maciça, marcado por uma espada quebrada. Você ouve uma voz grave vinda do outro lado: 'Mais um que vem perturbar o descanso dos mortos.' O portão se abre lentamente, revelando uma câmara circular iluminada por uma luz pálida. No centro, de pé, uma armadura negra com uma capa rasgada. A mão que segura a espada se ergue lentamente.\n\n'Você não é o primeiro... e não será o último.'",
+        "boss": {
+          "id": "sir_aldren",
+          "nome": "👑 𝕾𝖎𝖗 𝕬𝖑𝖉𝖗𝖊𝖓, 𝖔 𝕲𝖚𝖆𝖗𝖉𝖎ã𝖔 𝕰𝖘𝖖𝖚𝖊𝖈𝖎𝖉𝖔",
+          "titulo": "Último Comandante de Vhalor",
+          "historia": "Sir Aldren foi o comandante mais jovem da história de Vhalor. Ele liderou seus cavaleiros contra hordas de monstros e protegeu o Fragmento do Coração durante a Grande Ruptura. Quando a escuridão invadiu as catacumbas, ele ordenou que seus homens recuassem enquanto segurava o portão sozinho. Ninguém sabe se ele caiu em batalha ou se a escuridão o consumiu. O que se sabe é que sua alma nunca partiu. Hoje, ele guarda o Fragmento, corrompido pela própria energia que jurou proteger.",
+          "fala_entrada": "Mais um... perturbando o descanso dos mortos. Você tem coragem, ou é só mais um tolo?",
+          "fala_dano": "Você... me surpreende... mas ainda não é o bastante!",
+          "fala_derrota": "Finalmente... alguém digno. O fragmento... é seu. Use-o com sabedoria.",
+          "mecanica": "fraqueza_ataque_fisico"
+        },
+        "inimigos": [
+          { "id": "sir_aldren", "nivel": 5, "quantidade": 1 }
+        ],
+        "puzzle": null,
+        "npc": null
+      }
+    ],
+    "recompensa": {
+      "xp": 800,
+      "dinheiro": 500,
+      "itemId": "fragmento_da_honra"
+    }
+  }
+}
