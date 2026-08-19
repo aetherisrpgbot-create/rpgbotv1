@@ -1,5 +1,5 @@
 // ============================================================
-// BOT RPG - INDEX PRINCIPAL (VERSÃO RAILWAY)
+// BOT RPG - INDEX PRINCIPAL
 // ============================================================
 const baileys = require("@whiskeysockets/baileys");
 const makeWASocket = baileys.default;
@@ -17,11 +17,6 @@ const { logComando, atualizarEstatisticas, atualizarPerfilAvancado } = require("
 
 const PASTA_AUTH = './auth_info';
 const PREFIXO = '!';
-
-// 🔥 SEU NÚMERO DO BOT (formatado para o WhatsApp)
-// O número do bot é: +55 81 9589-2386
-// Formato correto para o código de pareamento: 558195892386
-const NUMERO_BOT = process.env.PHONE_NUMBER || "558195892386";
 
 // ===== PREVENÇÃO DE MENSAGENS DUPLICADAS =====
 const processedMessages = new Set();
@@ -57,37 +52,32 @@ async function startBot() {
             console.log('✅ BOT CONECTADO!');
             console.log('👑 Bot criado por Widnes Santos');
             console.log('📦 Sistema RPG carregado com sucesso!');
-            console.log(`📱 Número do bot: +55 81 9589-2386`);
             setupAutomatico(sock);
         }
     });
 
     sock.ev.on('creds.update', saveCreds);
 
-    // 🔥 LOGIN AUTOMÁTICO (SEM PRECISAR DIGITAR)
     if (!fs.existsSync(path.join(PASTA_AUTH, 'creds.json'))) {
-        console.log('📱 Gerando código de pareamento...');
-        console.log(`📱 Número do bot: +55 81 9589-2386`);
-        console.log('📌 Abra o WhatsApp → Configurações → Dispositivos vinculados → Vincular com código');
-        
-        try {
-            // 🔥 TENTA GERAR O CÓDIGO DE PAREAMENTO
-            const codigo = await sock.requestPairingCode(NUMERO_BOT);
-            console.log(`🔑 CÓDIGO DE PAREAMENTO: ${codigo}`);
-            console.log(`📱 Digite este código no WhatsApp!`);
-        } catch (err) {
-            console.log('❌ Erro ao gerar código de pareamento:', err.message);
-            console.log('📱 Tente usar o QR Code (já está disponível nos logs)');
-        }
+        const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+        const pergunta = (texto) => new Promise(resolve => rl.question(texto, resolve));
+        console.log('📱 Digite o número do WhatsApp (código do país + DDD + número):');
+        console.log('📌 Exemplo: 5581999999999');
+        const numero = await pergunta('Número: ');
+        rl.close();
+        const codigo = await sock.requestPairingCode(numero);
+        console.log(`🔑 Código de pareamento: ${codigo}`);
+        console.log('Digite esse código no WhatsApp → Configurações → Dispositivos vinculados → Vincular com código.');
     }
 
     // ============================================================
-    // 📨 EVENTO DE MENSAGEM
+    // 📨 EVENTO DE MENSAGEM (APENAS UM!)
     // ============================================================
     sock.ev.on('messages.upsert', async ({ messages }) => {
         const msg = messages[0];
         if (!msg?.message || msg.key?.fromMe) return;
 
+        // ===== PREVINE MENSAGENS DUPLICADAS =====
         const msgId = msg.key.id;
         if (processedMessages.has(msgId)) return;
         processedMessages.add(msgId);
@@ -101,10 +91,12 @@ async function startBot() {
         const texto = getTexto(msg);
         const isGroup = remoteJid?.endsWith('@g.us');
 
+        // ===== SISTEMA DE PROTEÇÃO =====
         if (!isAutorizado(remetenteId, remoteJid)) {
             return;
         }
 
+        // ===== ANTI-VIEWONCE (SEMPRE RODA) =====
         if (isGroup) {
             try {
                 const { handleAntiViewOnce } = require("./handlers/anti_viewonce");
@@ -114,6 +106,7 @@ async function startBot() {
             }
         }
 
+        // ===== PROCESSAMENTO DE COMANDOS =====
         if (texto.startsWith(PREFIXO)) {
             const partes = texto.slice(1).trim().split(/\s+/);
             const cmdNome = partes[0].toLowerCase();
@@ -121,10 +114,16 @@ async function startBot() {
 
             console.log(`👉 Comando: ${cmdNome}`);
 
+            // ============================================================
+            // 🔥 LOGS E ESTATÍSTICAS (BANCO DE DADOS)
+            // ============================================================
             logComando(remetenteId, cmdNome, args, remoteJid);
             atualizarEstatisticas(cmdNome, remetenteId);
             atualizarPerfilAvancado(remetenteId);
 
+            // ============================================================
+            // 🎯 EXECUTA O COMANDO
+            // ============================================================
             const comando = comandos.get(cmdNome);
             if (comando) {
                 try {
