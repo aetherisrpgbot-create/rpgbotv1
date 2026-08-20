@@ -1,5 +1,9 @@
 // ============================================================
+<<<<<<< HEAD
 // BOT RPG - INDEX PRINCIPAL (PAIRING CODE COM DELAY)
+=======
+// BOT RPG - INDEX PRINCIPAL (GERA CÓDIGO SEM AUTH_INFO)
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
 // ============================================================
 const baileys = require("@whiskeysockets/baileys");
 const makeWASocket = baileys.default;
@@ -17,9 +21,16 @@ const { logComando, atualizarEstatisticas, atualizarPerfilAvancado } = require("
 const PASTA_AUTH = './auth_info';
 const PREFIXO = '!';
 
+<<<<<<< HEAD
 // 🔥 SEU NÚMERO (FIXO)
 const NUMERO_BOT = process.env.PHONE_NUMBER || "558195892386";
 
+=======
+// 🔥 SEU NÚMERO (FIXO, NÃO PRECISA DIGITAR)
+const NUMERO_BOT = process.env.PHONE_NUMBER || "558195892386";
+
+// ===== PREVENÇÃO DE MENSAGENS DUPLICADAS =====
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
 const processedMessages = new Set();
 
 async function startBot() {
@@ -29,7 +40,7 @@ async function startBot() {
     const sock = makeWASocket({
         logger,
         auth: state,
-        printQRInTerminal: false,
+        printQRInTerminal: false,  // ← NÃO USA QR CODE
         browser: ['Linux', 'Chrome', '120.0.0']
     });
 
@@ -37,7 +48,11 @@ async function startBot() {
         const { connection, lastDisconnect, qr } = update;
 
         if (qr) {
+<<<<<<< HEAD
             console.log('📱 QR Code gerado (mas use o código de pareamento)');
+=======
+            console.log('📱 QR Code gerado! (use o código de pareamento em vez do QR)');
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
         }
 
         if (connection === 'close') {
@@ -53,27 +68,36 @@ async function startBot() {
             console.log('✅ BOT CONECTADO!');
             console.log('👑 Bot criado por Widnes Santos');
             console.log('📦 Sistema RPG carregado com sucesso!');
+            console.log(`📱 Número do bot: ${NUMERO_BOT}`);
             setupAutomatico(sock);
         }
     });
 
     sock.ev.on('creds.update', saveCreds);
 
+<<<<<<< HEAD
     // 🔥 PAIRING CODE COM DELAY
+=======
+    // 🔥 GERA O CÓDIGO DE PAREAMENTO AUTOMATICAMENTE (NÃO PRECISA DIGITAR)
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
     if (!fs.existsSync(path.join(PASTA_AUTH, 'creds.json'))) {
         console.log('📱 Gerando código de pareamento...');
         console.log(`📱 Número: ${NUMERO_BOT}`);
         console.log('📌 Abra o WhatsApp → Configurações → Dispositivos vinculados → Vincular com código');
         
         try {
+<<<<<<< HEAD
             // 🔥 ESPERA 5 SEGUNDOS ANTES DE TENTAR
             console.log('⏳ Aguardando 5 segundos antes de tentar...');
             await new Promise(resolve => setTimeout(resolve, 5000));
             
+=======
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
             const codigo = await sock.requestPairingCode(NUMERO_BOT);
             console.log(`🔑 CÓDIGO DE PAREAMENTO: ${codigo}`);
             console.log(`📱 Digite este código no WhatsApp!`);
             console.log(`⏳ Aguardando pareamento...`);
+<<<<<<< HEAD
         } catch (err) {
             console.log('❌ Erro ao gerar código:', err.message);
             console.log('📱 Tentando novamente em 10 segundos...');
@@ -95,6 +119,19 @@ async function startBot() {
                     });
                 }
             }, 10000);
+=======
+            console.log(`📌 Se o código não funcionar, tente escanear o QR Code (está nos logs acima)`);
+        } catch (err) {
+            console.log('❌ Erro ao gerar código:', err.message);
+            console.log('📱 Tentando QR Code...');
+            // Fallback: mostra o QR Code
+            sock.ev.on('connection.update', (update) => {
+                if (update.qr) {
+                    console.log('📱 QR Code (escaneie):');
+                    console.log(update.qr);
+                }
+            });
+>>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
         }
     }
 
