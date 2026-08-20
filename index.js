@@ -1,10 +1,4 @@
 // ============================================================
-<<<<<<< HEAD
-// BOT RPG - INDEX PRINCIPAL (PAIRING CODE COM DELAY)
-=======
-// BOT RPG - INDEX PRINCIPAL (GERA CÓDIGO SEM AUTH_INFO)
->>>>>>> c7685a6168c8341b9eece6085c9e1622fcc63e8b
-// ============================================================
 const baileys = require("@whiskeysockets/baileys");
 const makeWASocket = baileys.default;
 const { useMultiFileAuthState, DisconnectReason } = baileys;
