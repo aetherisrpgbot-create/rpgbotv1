@@ -1,5 +1,5 @@
 // ============================================================
-// BOT RPG - INDEX PRINCIPAL
+// BOT RPG - INDEX PRINCIPAL (PAIRING CODE COM DELAY)
 // ============================================================
 const baileys = require("@whiskeysockets/baileys");
 const makeWASocket = baileys.default;
@@ -7,7 +7,6 @@ const { useMultiFileAuthState, DisconnectReason } = baileys;
 const pino = require("pino");
 const fs = require("fs");
 const path = require("path");
-const readline = require("readline");
 
 const comandos = require("./comandos/index.js");
 const { getTexto } = require("./utils/helpers.js");
@@ -18,7 +17,9 @@ const { logComando, atualizarEstatisticas, atualizarPerfilAvancado } = require("
 const PASTA_AUTH = './auth_info';
 const PREFIXO = '!';
 
-// ===== PREVENÇÃO DE MENSAGENS DUPLICADAS =====
+// 🔥 SEU NÚMERO (FIXO)
+const NUMERO_BOT = process.env.PHONE_NUMBER || "558195892386";
+
 const processedMessages = new Set();
 
 async function startBot() {
@@ -36,7 +37,7 @@ async function startBot() {
         const { connection, lastDisconnect, qr } = update;
 
         if (qr) {
-            console.log('📱 QR Code gerado!');
+            console.log('📱 QR Code gerado (mas use o código de pareamento)');
         }
 
         if (connection === 'close') {
@@ -58,26 +59,52 @@ async function startBot() {
 
     sock.ev.on('creds.update', saveCreds);
 
+    // 🔥 PAIRING CODE COM DELAY
     if (!fs.existsSync(path.join(PASTA_AUTH, 'creds.json'))) {
-        const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-        const pergunta = (texto) => new Promise(resolve => rl.question(texto, resolve));
-        console.log('📱 Digite o número do WhatsApp (código do país + DDD + número):');
-        console.log('📌 Exemplo: 5581999999999');
-        const numero = await pergunta('Número: ');
-        rl.close();
-        const codigo = await sock.requestPairingCode(numero);
-        console.log(`🔑 Código de pareamento: ${codigo}`);
-        console.log('Digite esse código no WhatsApp → Configurações → Dispositivos vinculados → Vincular com código.');
+        console.log('📱 Gerando código de pareamento...');
+        console.log(`📱 Número: ${NUMERO_BOT}`);
+        console.log('📌 Abra o WhatsApp → Configurações → Dispositivos vinculados → Vincular com código');
+        
+        try {
+            // 🔥 ESPERA 5 SEGUNDOS ANTES DE TENTAR
+            console.log('⏳ Aguardando 5 segundos antes de tentar...');
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            
+            const codigo = await sock.requestPairingCode(NUMERO_BOT);
+            console.log(`🔑 CÓDIGO DE PAREAMENTO: ${codigo}`);
+            console.log(`📱 Digite este código no WhatsApp!`);
+            console.log(`⏳ Aguardando pareamento...`);
+        } catch (err) {
+            console.log('❌ Erro ao gerar código:', err.message);
+            console.log('📱 Tentando novamente em 10 segundos...');
+            
+            // 🔥 TENTA DE NOVO DEPOIS DE 10 SEGUNDOS
+            setTimeout(async () => {
+                try {
+                    const codigo = await sock.requestPairingCode(NUMERO_BOT);
+                    console.log(`🔑 CÓDIGO DE PAREAMENTO: ${codigo}`);
+                } catch (err2) {
+                    console.log('❌ Erro novamente:', err2.message);
+                    console.log('📱 Use o QR Code (escaneie com outro celular ou tire um print)');
+                    // Mostra o QR Code como fallback
+                    sock.ev.on('connection.update', (update) => {
+                        if (update.qr) {
+                            console.log('📱 QR Code:');
+                            console.log(update.qr);
+                        }
+                    });
+                }
+            }, 10000);
+        }
     }
 
     // ============================================================
-    // 📨 EVENTO DE MENSAGEM (APENAS UM!)
+    // 📨 EVENTO DE MENSAGEM
     // ============================================================
     sock.ev.on('messages.upsert', async ({ messages }) => {
         const msg = messages[0];
         if (!msg?.message || msg.key?.fromMe) return;
 
-        // ===== PREVINE MENSAGENS DUPLICADAS =====
         const msgId = msg.key.id;
         if (processedMessages.has(msgId)) return;
         processedMessages.add(msgId);
@@ -91,12 +118,10 @@ async function startBot() {
         const texto = getTexto(msg);
         const isGroup = remoteJid?.endsWith('@g.us');
 
-        // ===== SISTEMA DE PROTEÇÃO =====
         if (!isAutorizado(remetenteId, remoteJid)) {
             return;
         }
 
-        // ===== ANTI-VIEWONCE (SEMPRE RODA) =====
         if (isGroup) {
             try {
                 const { handleAntiViewOnce } = require("./handlers/anti_viewonce");
@@ -106,7 +131,6 @@ async function startBot() {
             }
         }
 
-        // ===== PROCESSAMENTO DE COMANDOS =====
         if (texto.startsWith(PREFIXO)) {
             const partes = texto.slice(1).trim().split(/\s+/);
             const cmdNome = partes[0].toLowerCase();
@@ -114,16 +138,10 @@ async function startBot() {
 
             console.log(`👉 Comando: ${cmdNome}`);
 
-            // ============================================================
-            // 🔥 LOGS E ESTATÍSTICAS (BANCO DE DADOS)
-            // ============================================================
             logComando(remetenteId, cmdNome, args, remoteJid);
             atualizarEstatisticas(cmdNome, remetenteId);
             atualizarPerfilAvancado(remetenteId);
 
-            // ============================================================
-            // 🎯 EXECUTA O COMANDO
-            // ============================================================
             const comando = comandos.get(cmdNome);
             if (comando) {
                 try {
